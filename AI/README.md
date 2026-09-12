@@ -84,11 +84,14 @@ Also, there is an emerging effort to support the communities that are protecting
 Below is an eclectic collection of resources about AI and its implications.
 
 - [The Pope and AI](https://byandell.github.io/The-Pope-and_AI/)
+- [AI Goes Rogue](https://byandell.github.io/AI-goes-Rogue/)
 - [What does AI cost? (CU ESIIL)](https://cu-esiil.github.io/Project_group_OASIS/ai-for-sustainability/what-does-it-cost/)
 - [On AI, Sustainability, and the Tensions Worth Keeping (Juan Maestre)](https://setx-uifl.org/esiil-2026/)
 - [Ethics of AI (Tyson Swetnam Blog)](https://tysonswetnam.com/blog/posts/2025-01-14-gpt101/#ethics-of-ai)
 - [The uncritical adoption of AI in science is alarming — we urgently need guard rails (Nature)](https://www.nature.com/articles/d41586-026-01557-x)
+- [AI and Data Sovereignty Conference (Seed for Change, 10 Oct 2026)](https://www.seedsforchange.se/groundwork#comp-mp13qhl75)
 - [No Data Centers on Native Land Campaign (Honor Earth)](https://Honorearth.org/stopdatacolonialism)
+- [Data Center AI Populism (NYT Opinion)](https://www.nytimes.com/2026/08/31/opinion/data-centers-ai-populism.html)
 
 ### AI and Scientific Community
 
@@ -103,7 +106,13 @@ These references were gleaned from the [ESIIL Network Slack Channel](https://esi
 - [Researchers who use hallucinated references to face arXiv ban (Nature)](https://www.nature.com/articles/d41586-026-01595-5)
 - [Leveraging Al for Greenhouse Gas Monitoring and Accountability: Webinar Series
 Ensuring Data Quality, Access, and Trust in GH Emissions Information
- (National Academies)](https://www.nationalacademies.org/projects/DEPS-BEES-25-P-692/events/archive)
+(National Academies)](https://www.nationalacademies.org/projects/DEPS-BEES-25-P-692/events/archive)
+- [Operational Tropical Cyclone Forecasting with AI (Nature, 2026)](https://doi.org/10.1038/s41586-026-10953-2)
+- AI Challenges Math
+  - [Jacob T Simerman Math wins Fields Medal and joins OpenAI (The Atlantic, 2026)](https://www.theatlantic.com/technology/2026/07/jacob-tsimerman-math-fields-medal-openai/688120)
+  - [Leiden declaration warns AI is challenging the core values of mathematics (Universiteit Leiden)](https://www.universiteitleiden.nl/en/news/2026/06/leiden-declaration-warns-ai-is-challenging-the-core-values-of-mathematics)
+  - [I wish we had more time to do this slowly (New Scientist)](https://www.sciencedirect.com/science/article/abs/pii/S0262407926012741)
+  - [Why mathematician Terence Tao thinks AI must spark a rapid revolution (New Scientist)](https://www.newscientist.com/article/2583307-why-mathematician-terence-tao-thinks-ai-must-spark-a-rapid-revolution/)
 
 #### Energy and Water Reports
 
