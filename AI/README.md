@@ -83,8 +83,9 @@ in their use of those scarce resources.
 Also, there is an emerging effort to support the communities that are protecting and nourishing the water that weaves through their lands.
 Below is an eclectic collection of resources about AI and its implications.
 
-- [The Pope and AI](https://byandell.github.io/The-Pope-and_AI/)
-- [AI Goes Rogue](https://byandell.github.io/AI-goes-Rogue/)
+- [An Eye for an AI](https://byandell.github.io/An-Eye-for-an-AI/)
+- [The Pope and AI](https://byandell.github.io/The-Pope-and-AI/)
+- [AI Goes Rogue](https://byandell.github.io/AI-Goes-Rogue/)
 - [What does AI cost? (CU ESIIL)](https://cu-esiil.github.io/Project_group_OASIS/ai-for-sustainability/what-does-it-cost/)
 - [On AI, Sustainability, and the Tensions Worth Keeping (Juan Maestre)](https://setx-uifl.org/esiil-2026/)
 - [Ethics of AI (Tyson Swetnam Blog)](https://tysonswetnam.com/blog/posts/2025-01-14-gpt101/#ethics-of-ai)
