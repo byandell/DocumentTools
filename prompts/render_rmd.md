@@ -1,7 +1,8 @@
 ---
 title: "Render R Markdown to GitHub Pages"
 parent: "Prompt Examples"
-nav_order: 13
+grand_parent: "AI (Artificial Intelligence)"
+nav_order: 12
 ---
 
 # Render R Markdown to GitHub Pages

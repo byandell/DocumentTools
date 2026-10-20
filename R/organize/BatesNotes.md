@@ -1,9 +1,8 @@
 ---
-parent: "Organizing Data & Docs"
 title: "Organizing data in R"
-date: "2017-10-03"
-author: "Doug Bates"
-type: "lesson"
+parent: "Organize Data & Docs"
+grand_parent: "R Language"
+nav_order: 5
 ---
 
 # Organizing data in R (Doug Bates)

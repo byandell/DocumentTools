@@ -1,7 +1,8 @@
 ---
 title: "Publish Quarto Dashboard"
-parent: "Automate with GitHub Actions"
-nav_order: 2
+parent: "Publish GitHub Pages"
+grand_parent: "Organize Projects with GitHub"
+nav_order: 3
 ---
 
 # Publish Quarto Dashboard

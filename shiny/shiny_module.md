@@ -1,12 +1,8 @@
 ---
+title: "Learning about Reactivity"
 nav_exclude: true
 ---
 
-# shiny_module: learning about reactivity
+# Learning about Reactivity
 
-Finally, the
-[shiny_module](https://github.com/byandell/shiny_module)
-repo has some early learnings about reactivity.
-It is perhaps useful as a reference when trying to figure out
-why reactive code is not working.
-However, it is rather dated at this point.
+This content has been consolidated into [geyser: Modular Concepts and Construction](./geyser.md#source-code--repository).

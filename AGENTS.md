@@ -1,6 +1,6 @@
 ---
 title: "AGENTS.md — DocumentTools Repository"
-parent: "Prompt Examples"
+nav_exclude: true
 ---
 
 # AGENTS.md — DocumentTools Repository
@@ -17,7 +17,7 @@ Act as a technical documentation architect and digital tools writer.
 - Verify build: `quarto render` or `bundle exec jekyll build`.
 - Quarto slides render to HTML in `quarto/`.
 - Ensure `docs/.nojekyll` exists when publishing to GitHub Pages (`gh-pages`).
-- Never overwrite versioned files (e.g. `*_v1.R`) — follow the multi-version commit workflow in [prompts/file_versions.md](prompts/file_versions.md).
+- Never overwrite versioned files (e.g. `*_v1.R`) — follow the multi-version commit workflow in [prompts/workflow.md](prompts/workflow.md).
 
 ## Format & Conventions
 - Single `# H1` title tag per `.md` / `.qmd` file with strict `##` and `###` hierarchy.

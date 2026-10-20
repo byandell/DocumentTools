@@ -31,7 +31,7 @@ the evolution of code-based tools and languages.
 This historical collection has many broken links,
 indicated by ⚠️ icons,
 which I plan to fix over time.
-See [Broken Links](./prompts/broken_links.md) for a summary.
+See [Check External Links](./prompts/check_links.md) for a summary.
 
 - [R Language](#r-language)
 - [Systems Genetics](#systems-genetics)
@@ -47,13 +47,13 @@ I first encountered `S` in the mid-1970's while at UC-Berkeley,
 when David Brillinger brought a copy from Bell Labs.
 Fellow student Ross Ihaka later went on to co-design `R`
 (see
-[Background R Material](R/learn/background.md)).
+[History of R](R/learn/history.md)).
 When I joined UW-Madison in 1982, I became friends with
 [Doug Bates](https://www.stat.wisc.edu/~bates/)
 who became (and still is) a key member of the core `R` development team.
 I kept coming back to this system as it matured over coming decades.
 
-My notes on [R](cran.r-project.org) were organized for a
+My notes on [R](https://cran.r-project.org) were organized for a
 2017
 [COMBEE](https://hub.datascience.wisc.edu/communities/combee/)
 short course in the

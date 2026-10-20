@@ -105,8 +105,10 @@ def extract_links(file_path):
                 # Simple markdown link format check or general URL regex
                 for match in URL_REGEX.finditer(line):
                     url = clean_url(match.group(0))
-                    # Parse URL
-                    parsed = urllib.parse.urlparse(url)
+                    try:
+                        parsed = urllib.parse.urlparse(url)
+                    except ValueError:
+                        continue
                     # Ignore empty host, localhost, loopback IP, or local paths
                     if not parsed.netloc or parsed.netloc in ("localhost", "127.0.0.1"):
                         continue

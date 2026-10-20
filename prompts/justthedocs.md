@@ -1,7 +1,8 @@
 ---
 title: "Configure Just-the-Docs"
 parent: "Prompt Examples"
-nav_order: 5
+grand_parent: "AI (Artificial Intelligence)"
+nav_order: 4
 ---
 
 # Configure Just-the-Docs

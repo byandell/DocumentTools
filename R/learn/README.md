@@ -5,6 +5,7 @@ author: "Brian S. Yandell"
 date: 2017-06-29
 permalink: /R/learn/
 nav_order: 1
+has_children: true
 ---
 
 # Overview of R Material

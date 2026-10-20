@@ -1,20 +1,8 @@
 ---
 title: "Simulation Studies in R"
-parent: "Profile & Simulate"
-grand_parent: "R Language"
-nav_order: 3
+nav_exclude: true
 ---
 
 # Simulation Studies in R
 
-**Learning objectives:** A person completing this lesson should be able to
-
-- set up and run a simulation, say for a linear model
-- explain the value of simulation when theory is not available
-- compare speed of different simulations
-
-### Simulation lessons from Doug Bates
-
-- [Simulation studies using R](https://github.com/dmbates/stat692/blob/master/Simulations.Rmd)
-- [Speed of simulations](https://github.com/dmbates/stat692/blob/master/SimSpeed.Rmd)
-- [Simulating linear model fits](https://github.com/dmbates/stat692/blob/master/LmSimulation.Rmd)
+This lesson has been consolidated into [Profiling, Benchmarking, and Simulation in R](./profile.md#simulation-studies-in-r).

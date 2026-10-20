@@ -1,6 +1,7 @@
 ---
 title: "Version GitHub Docs"
 parent: "Prompt Examples"
+grand_parent: "AI (Artificial Intelligence)"
 nav_order: 1
 ---
 

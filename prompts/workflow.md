@@ -1,7 +1,8 @@
 ---
 title: "Refactor Workflows"
 parent: "Prompt Examples"
-nav_order: 4
+grand_parent: "AI (Artificial Intelligence)"
+nav_order: 3
 ---
 
 # Refactor Workflows

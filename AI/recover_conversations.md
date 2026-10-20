@@ -1,6 +1,8 @@
 ---
 title: "Recovering Antigravity 1.x Conversations"
 parent: "AI Environments"
+grand_parent: "AI (Artificial Intelligence)"
+nav_order: 1
 ---
 
 # Recovering Antigravity 1.x Conversations

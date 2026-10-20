@@ -35,10 +35,26 @@ file | contents
 [correlate](correlate.md) | co-relate variables (columns) of data
 [covary](covary.md) | how do columns co-vary together
 [linear_model](linear_model.md) | linear models
-[sysgen](sysgen.md) | systems genetics
+[Formulas](Formulas.md) | formulas for linear models
 
-Douglas Bates
+### Douglas Bates Reference Notes
 
 - [Formulas.Rmd](https://github.com/dmbates/stat692/blob/master/Formulas.Rmd)
-- [formulas.Rnw](https://github.com/dmbates/stat692/blob/master/formulas.Rnw) and
-[formulas.pdf](https://github.com/dmbates/stat692/blob/master/formulas.pdf)
+- [formulas.Rnw](https://github.com/dmbates/stat692/blob/master/formulas.Rnw) and [formulas.pdf](https://github.com/dmbates/stat692/blob/master/formulas.pdf)
+
+---
+
+## Systems Genetics in R
+
+Systems genetics explores Quantitative Trait Loci (QTL), mediation, and multi-omic data integration. Key repositories and research tools include:
+
+- **R Packages & Organizations**:
+  - [byandell-sysgen GitHub Organization](https://github.com/byandell-sysgen)
+  - [R/qtl](http://rqtl.org): High-density genetic mapping
+  - [R/qtl2](http://kbroman.org/qtl2/): Genetic analysis in multi-parent populations
+- **Collaborative Research Centers**:
+  - [Systems Genetics Resource (UCLA)](https://systems.genetics.ucla.edu/)
+  - [Churchill Lab at The Jackson Laboratory](http://churchill-lab.jax.org/)
+  - [Collaborative Cross (UNC)](http://www.csbio.unc.edu/CCstatus/)
+  - [Yandell Notes from Jackson Labs Talks](http://pages.stat.wisc.edu/~yandell/talk/jax/)
+

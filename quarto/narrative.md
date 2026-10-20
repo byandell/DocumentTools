@@ -1,6 +1,7 @@
 ---
 title: "Quarto Narrative"
 parent: "Quarto"
+nav_order: 1
 ---
 
 # Quarto Narrative

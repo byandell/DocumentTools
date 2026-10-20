@@ -1,11 +1,11 @@
 ---
-title: "Profiling R Code"
+title: "Profiling, Benchmarking, and Simulation in R"
 parent: "Profile & Simulate"
 grand_parent: "R Language"
 nav_order: 1
 ---
 
-# Profiling R Code
+# Profiling, Benchmarking, and Simulation in R
 
 - [Advanced R by Hadley Wickham (ebook)](http://adv-r.had.co.nz/): [Performance](http://adv-r.had.co.nz/Performance.html) & [Profiling](http://adv-r.had.co.nz/Profiling.html)
 
@@ -165,4 +165,19 @@ The idea is to write tests of units of code (unit tests), to check out code a st
 Then go further, and set up unit tests to be reused whenever you change your code.
 
 [Travis Continuous Integration](https://travis-ci.org/) works with packages on github to make sure code works as expected each time it is changed. For `R`, this is often used in conjunction with [testthat](https://github.com/hadley/testthat). However, Travis/CI works for a wide range of software languages and platforms.
+
+---
+
+## Simulation Studies in R
+
+**Learning Objectives:**
+- Set up and run a statistical simulation (e.g. for a linear model).
+- Explain the value of simulation when analytical theory is unavailable.
+- Benchmark and compare computational speed of different simulation designs.
+
+### Simulation Lessons from Doug Bates (Stat 692)
+- [Simulation studies using R](https://github.com/dmbates/stat692/blob/master/Simulations.Rmd)
+- [Speed of simulations](https://github.com/dmbates/stat692/blob/master/SimSpeed.Rmd)
+- [Simulating linear model fits](https://github.com/dmbates/stat692/blob/master/LmSimulation.Rmd)
+
 

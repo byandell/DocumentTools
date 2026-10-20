@@ -1,13 +1,38 @@
 ---
-title: "R Markdown Example"
+title: "R Markdown for Reproducible Reports"
 parent: "Organize Data & Docs"
 grand_parent: "R Language"
 nav_order: 1
 ---
 
-# R Markdown Example
+# R Markdown for Reproducible Reports
 
-#Large  header
+R Markdown blends executable R code chunks with Markdown narrative to produce dynamic reports, slides, web pages, and notebooks. It works seamlessly within [RStudio / Posit](https://posit.co/download/rstudio-desktop/).
+
+## Getting Started & Resources
+
+To begin, open RStudio and select **File &rarr; New File &rarr; R Markdown** (HTML, PDF, or Word) or **R Notebook**. Click the **Knit** button in the editor toolbar to render the document.
+
+### Recommended Guides
+- [R Markdown from RStudio](http://rmarkdown.rstudio.com/)
+- [Reproducible Reports with R Markdown (Data Carpentry)](http://kbroman.org/datacarpentry_R_2017-01-10/04-rmarkdown.html)
+- [R for Data Science (R4DS): R Markdown](http://r4ds.had.co.nz/r-markdown.html)
+- [Knitr in a Knutshell (Karl Broman)](http://kbroman.org/knitr_knutshell/)
+- [R Markdown Cheat Sheet](https://rstudio.github.io/cheatsheets/rmarkdown.pdf)
+- [Bookdown: Authoring Books and Technical Documents](https://bookdown.org/)
+
+### Adding Pandoc to Your PATH (macOS / Linux)
+If running knitr from the terminal or shell scripts outside RStudio:
+
+```bash
+export PATH=$PATH:/Applications/RStudio.app/Contents/MacOS/quarto/bin:/Applications/RStudio.app/Contents/MacOS/pandoc
+```
+
+---
+
+## Interactive Syntax & Example Report
+
+### Document Structure & Typography
  
 Regular text, non-code. 
  

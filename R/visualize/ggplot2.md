@@ -60,4 +60,24 @@ nav_order: 1
 ## Heatmaps
 
 - pretty heatmaps with [pheatmap](https://github.com/raivokolde/pheatmap)
-- [Gplots and heatmap.2 for heatmaps (usually need to be prettied up in inkscape/illustrator)](https://cran.r-project.org/web/packages/gplots/)
+- [Gplots and heatmap.2 for heatmaps](https://cran.r-project.org/web/packages/gplots/)
+
+---
+
+## Dynamic & Scientific Graphics References
+
+Visualization is the key to quick insights with data:
+
+- **Interactive Frameworks & D3**:
+  - [d3: Data-Driven Documents](http://d3js.org)
+  - [Interactive Graphics With D3 (Karl Broman)](http://www.biostat.wisc.edu/~kbroman/presentations/InteractiveGraphs3/) ⚠️
+  - [D3 Graphics Gallery & Tutorials](https://github.com/mbostock/d3/wiki/Gallery)
+- **Effective Presentation Principles**:
+  - [How to Display Data Badly & Top 10 Worst Graphs (Karl Broman)](http://www.biostat.wisc.edu/~kbroman/topten_worstgraphs/) ⚠️
+  - [Edward Tufte: Visual Explanations](http://www.edwardtufte.com/tufte/)
+  - [Six Simple Techniques for Presenting Data (Hans Rosling)](http://sixminutes.dlugan.com/six-simple-techniques-for-presenting-data-hans-rosling-ted-2006/)
+- **Biological & Network Visualization Tools**:
+  - [Circos Circular Visualization](http://circos.ca/) ⚠️
+  - [Cytoscape Network Visualizer](http://www.cytoscape.org/)
+  - [igraph R Library](http://igraph.org/)
+

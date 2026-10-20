@@ -66,3 +66,5 @@ Explore live Shinylive applications running directly inside your browser without
 
 - **GitHub Repository**: [byandell/geyser](https://github.com/byandell/geyser)
 - **Module Tutorial Code**: Sample code for module construction in [`inst/build_module`](https://github.com/byandell/geyser/tree/main/inst/build_module) and [`inst/connect_modules`](https://github.com/byandell/geyser/tree/main/inst/connect_modules).
+- **Historical Reactivity Learnings**: The [shiny_module](https://github.com/byandell/shiny_module) repository captures early lessons and exploratory patterns around debugging reactivity, reactive values scoping, and module contracts.
+

@@ -1,7 +1,8 @@
 ---
 title: "Create Shiny App Gallery"
 parent: "Prompt Examples"
-nav_order: 7
+grand_parent: "AI (Artificial Intelligence)"
+nav_order: 6
 ---
 
 # Create Shiny App Gallery

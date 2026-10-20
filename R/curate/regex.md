@@ -1,18 +1,53 @@
 ---
-title: "Regular Expressions (regex)"
+title: "Characters, Strings, and Regular Expressions"
 parent: "Curate R Data"
 grand_parent: "R Language"
-nav_order: 8
+nav_order: 7
 ---
 
-# Regular Expressions (regex)
+# Characters, Strings, and Regular Expressions in R
 
-- <http://regexr.com>: Test out your reg expressions before you use them (specify your test expression and it will highlight in a sample document (which you can change) the matches.
-- [regex base-R cheat sheet](http://www.endmemo.com/program/R/grep.php) ⚠️
-- [Helpful examples on grouping](http://www.regular-expressions.info/rlanguage.html)
-- [Examples on subsetting matches](http://www.dummies.com/how-to/content/how-to-use-regular-expressions-in-r.html) ⚠️
-- [Getting strsplit in the right format with sapply](http://www.r-bloggers.com/regular-expressions-in-r-vs-rstudio/)
-- [RegexBuddy](http://www.regexbuddy.com/rlanguage.html) 
+Working with text data in R combines base string utilities, the tidyverse [`stringr`](http://stringr.tidyverse.org/) package, text mining packages like [`tidytext`](https://github.com/juliasilge/tidytext), and regular expressions.
+
+---
+
+## 1. Characters, Strings, and Vectorized Padding
+
+- [Jenny Bryan's Data analysis 2: vectors](http://stat545.com/topics.html) ⚠️
+- [stringr Package](http://stringr.tidyverse.org/)
+- [tidytext: Julia Silge & David Robinson](https://github.com/juliasilge/tidytext)
+
+### Column Renaming & Padding Example
+
+When modifying column names across a dataset, an iterative loop can be awkward, repetitive, and slow:
+
+```r
+# Verbose loop approach
+new_names <- list()
+l <- 1
+for (n in colnames(x)) {
+  ifelse((l < 10), (colnames(x)[l] <- c(paste0('Otu000', c(l)))), (colnames(x)[l] <- c(paste0('Otu00', c(l))))) 
+  new_names <- append(new_names, colnames(x)[l])
+  l <- l + 1
+}
+```
+
+A vectorized approach using `stringr::str_pad()` is concise, fast, and idiomatic:
+
+```r
+# Clean, vectorized stringr approach
+new_names <- paste0("Otu", stringr::str_pad(seq_along(colnames(x)), 4, pad = "0"))
+```
+
+---
+
+## 2. Regular Expressions (`regex`)
+
+- [Regexr.com Interactive Tester](http://regexr.com): Test and highlight expressions against sample text.
+- [Base R Regex Cheat Sheet](http://www.endmemo.com/program/R/grep.php) ⚠️
+- [Grouping and Capturing in R](http://www.regular-expressions.info/rlanguage.html)
+- [RegexBuddy in R](http://www.regexbuddy.com/rlanguage.html)
+ 
 
 
 Drew’s example (using `gsub`): 

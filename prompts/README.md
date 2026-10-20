@@ -1,6 +1,8 @@
 ---
 title: "Prompt Examples"
-parent: "Prompt Engineering"
+parent: "AI (Artificial Intelligence)"
+nav_order: 7
+has_children: true
 permalink: /prompts/
 ---
 
@@ -31,23 +33,19 @@ They illustrate a few principles along the way.
   - [Document Folders in ResearchDrive](#document-folders-in-researchdrive)
 - More detailed Prompt examples
   - [Version GitHub Docs](./github.md)
-  - [Assemble Powerpoint](./powerpoint.md)
-  - [Create Quarto Slides](./quarto.md)
+  - [Quarto & Presentation Prompts](./presentation_prompts.md)
   - [Refactor Workflows](./workflow.md)
   - [Configure Just-the-Docs](./justthedocs.md)
-  - [Create Developer Guides (Blueprint)](./devel_guide.md)
-    - [Create Developer Guide to `qtl2shiny` (Reference Case Study)](./devel_guide_qtl2shiny.md)
+  - [Create Developer Guides (Blueprint & Case Study)](./devel_guide.md)
   - [Create Shiny App Gallery](./gallery.md)
   - [Plotly Debouncer & Iframe Embedding](./debouncer.md)
+  - [AI Agent Rules & CRAFT Templates](./agents_craft_templates.md)
+  - [Check External Links & Audit Broken References](./check_links.md)
   - [Prepare to Move a GitHub Repo](./move_repo.md)
   - [Render R Markdown to GitHub Pages](./render_rmd.md)
-  - [Create an `AGENTS.md` for a Project](#create-an-agentsmd-for-a-project)
-    - [Global Agents Template](./global_agents_template.md)
-    - [Agents CRAFT Templates](./agents_craft_templates.md)
-  - [Check External Links](./check_links.md)
-    - [Broken Links](./broken_links.md)
+  - [Migrate Documentation from DSHub](./migrate.md)
 - Additional Pages
-  - [Use `pkgdown` to Auto-Build GitHub Website](./github/pkgdown.md)
+  - [Use `pkgdown` to Auto-Build GitHub Website](../github/pkgdown.md)
 
 ## Saving Prompts and Walkthroughs
 
@@ -171,7 +169,7 @@ An
 [AGENTS.md](https://agents.md/)
 file serves as an onboarding handbook and operating contract for AI agents working in a repository.
 Pairing a global `~/.agents/AGENTS.md` (System Instructions, see
-[Global Agents Template](global_agents_template.md))
+[Global Agents Template](agents_craft_templates.md#1-universal-system-instructions-agentsagentsmd))
 with a project-level `AGENTS.md` organized via the
 [CRAFT framework](../AI/agents.md#structuring-project-rules-with-the-craft-framework) keeps token counts low and instructions sharp.
 
@@ -230,7 +228,7 @@ The AI will likely include a title slide; you can also ask AI to add other mater
 
 **Example:**
 
-- [powerpoint.md](./powerpoint.md)
+- [presentation_prompts.md](./presentation_prompts.md#2-automated-powerpoint-deck-generation-from-r-pipelines)
 
 This prompt was used to create the powerpoint presentation for a GTT project.
 For more detail, see

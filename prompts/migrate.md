@@ -1,6 +1,8 @@
 ---
 title: "Migrate Documentation from DSHub"
 parent: "Prompt Examples"
+grand_parent: "AI (Artificial Intelligence)"
+nav_order: 8
 ---
 
 # Migrate Documentation from DSHub

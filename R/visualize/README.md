@@ -19,16 +19,16 @@ permalink: /R/visualize/
 > * develop interactive graphics ([plotly](https://plot.ly/ggplot2/), [ggvis](http://blog.revolutionanalytics.com/2014/06/interactive-web-ready-ggplot2-style-graphics-with-ggvis.html) ⚠️)
 > * examine related packages ([cowplot](https://github.com/wilkelab/cowplot), [GGally](https://ggobi.github.io/ggally/), [grid viewports](https://stat.ethz.ch/R-manual/R-devel/library/grid/doc/viewports.pdf))
 > * create heatmaps ([pheatmap](https://github.com/raivokolde/pheatmap))
-> * [network](network/) observations in connected graphs
+> * visualize network graphs with [igraph](network_igraph.md) and [visNetwork](network_visNetwork.md)
 > * use [shiny](shiny.md) to share results on the web
 
 ## Contents
 
-* [ggplot2 and related stuff](ggplot2.md)
-* [shiny apps](shiny.md)
-* [Visualize Links](visualize.md)
-* [Graphics Links](graphics.md)
-* [Network Observatins in Connected Graphs](network/)
+* [ggplot2 Visualization & Graphics Links](ggplot2.md)
+* [Shiny Web Applications](shiny.md)
+* [Network Data Preparation](network_data.md)
+* [igraph Network Visualization (Datasets 1 & 2)](network_igraph.md)
+* [visNetwork Interactive Visualization](network_visNetwork.md)
 * Additional Pages
   * [R4DS Book](http://r4ds.had.co.nz/)
     * [Data Visualization](http://r4ds.had.co.nz/data-visualisation.html)

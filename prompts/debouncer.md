@@ -1,7 +1,8 @@
 ---
 title: "Plotly Debouncer & Iframe Embedding"
 parent: "Prompt Examples"
-nav_order: 8
+grand_parent: "AI (Artificial Intelligence)"
+nav_order: 7
 ---
 
 # Plotly Debouncer & Iframe Embedding

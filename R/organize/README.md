@@ -27,8 +27,7 @@ permalink: /R/organize/
 
 ## Contents
 
-- [Rmarkdown Report Writing](Rmarkdown.md)
-- [Rmarkdown Example](RmarkdownExample.md)
+- [R Markdown for Reproducible Reports](RmarkdownExample.md)
 - [Function Examples](function.md)
 - [SQLite & dplyr](SQLiteDplyr.md)
 - [R Packages](package.md)

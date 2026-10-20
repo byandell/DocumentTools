@@ -5,6 +5,7 @@ author: "Brian S. Yandell"
 date: 2017-06-29
 permalink: /R/connect/
 nav_order: 7
+has_children: true
 ---
 
 # Connect Data Tools Beyond `R`
@@ -22,20 +23,11 @@ nav_order: 7
 
 ## Pages
 
-- [beyondR](beyondR.md)
-- [blended_online](blended_online.md)
-- [docker](docker.md)
-- [latex](latex.md)
-- [linux](linux.md)
-- [nontrad](nontrad.md)
-- [plan](plan.md)
-- [profSkills](profSkills.md)
-- [programs](programs.md)
-- [reproducible](reproducible.md)
-- [scaling_up](scaling_up.md)
-- [software](software.md)
-- [stat692notes](stat692notes.md)
-- [writing](writing.md)
+- [Computing Environments: Linux, Bash, Docker, and Tooling](dev_environment.md)
+- [Reproducible Research, LaTeX & Scientific Writing](reproducible_publishing.md)
+- [Scaling R & Data Science Teams](scaling_teams.md)
+- [Professional Data Science Programs & Online Courses](academic_programs.md)
+- [Stat 692 Fall 2014 Notes](stat692notes.md)
 
 ## References
 

@@ -1,9 +1,10 @@
 ---
 title: "R References"
 parent: "Overview of R Material"
+grand_parent: "R Language"
 author: "Brian S. Yandell"
 date: 2017-06-29
-nav_order: 5
+nav_order: 4
 ---
 
 # R References
@@ -45,10 +46,10 @@ nav_order: 5
 
 ## Miscellaneous
 
-- [Data Repositories](/data/repositories.md)
+- [Data Repositories](../../datasci/repositories.md)
 - [toolero: A Toolkit for Research Workflows](https://erwinlares.github.io/toolero/)
 ([CRAN](https://CRAN.R-project.org/package=toolero))
-- [R in VS Code with Radian](./radian.md)
+- [R in VS Code with Radian](../radian.md)
 - [Base R(4.1+) `|>` vs magrittr `%>%` pipe](https://tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/)
 
 ## Yandell Material (dated)

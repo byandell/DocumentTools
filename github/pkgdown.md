@@ -1,6 +1,8 @@
 ---
 title: "Use `pkgdown` to Auto-Build GitHub Website"
 parent: "Publish GitHub Pages"
+grand_parent: "Organize Projects with GitHub"
+nav_order: 4
 ---
 
 # Use `pkgdown` to Auto-Build GitHub Website

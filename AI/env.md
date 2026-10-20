@@ -2,6 +2,7 @@
 title: "AI Environments"
 parent: "AI (Artificial Intelligence)"
 nav_order: 1
+has_children: true
 ---
 
 # AI Environments

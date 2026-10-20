@@ -42,8 +42,6 @@ Yandell's key working repos that inform this document are
 - [geyser: modular concepts and construction](geyser.md)
 - [foundrShiny: pragmatic code reuse driven by collaborators](foundrShiny.md)
 - [qtl2shiny: localized QTL analysis and visualization](qtl2shiny.md)
-<!-- - [shiny_module: learning about reactivity](shiny_module.md)
-<!-- - [qtlApp: modular QTL visualization app](qtlApp.md) -->
 
 ## Shiny App Examples
 
@@ -52,4 +50,4 @@ Yandell's key working repos that inform this document are
 - [Shiny app for R/qtl2](https://byandell-sysgen.github.io/qtl2shiny)
 - [Learning about Shiny Modules](https://github.com/byandell/shiny_module)
 - [Helper Apps](https://github.com/byandell/helperApps)
-<!-- - [Shiny app for QTL visualization](https://github.com/AttieLab-Systems-Genetics/qtlApp) -->
+- [Scaled QTL Visualizers (qtlApp)](https://github.com/AttieLab-Systems-Genetics/qtlApp)

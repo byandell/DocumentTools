@@ -68,7 +68,23 @@ Detailed technical documentation for the package data structures, query function
 
 ---
 
-## Related References
+## Related References & Scaled QTL Visualizers
 
 - [Developer Process Documentation](https://byandell.github.io/DocumentTools/prompts/devel_guide.html)
 - [qtl2shiny Package Repository](https://github.com/byandell-sysgen/qtl2shiny)
+
+### Scaled Modular Visualization (`qtlApp`)
+
+The [`qtlApp`](https://github.com/AttieLab-Systems-Genetics/qtlApp) repository represents a collaborative evolution toward large-scale QTL visualization and analysis. It organizes multiple small Shiny modules, each with its own lightweight app, enabling team members to develop and extend modules independently:
+
+- **Core Analysis Files**:
+  - [`trait_scan.R`](https://github.com/AttieLab-Systems-Genetics/qtlApp/blob/main/R/trait_scan.R): Core trait scanning routines.
+  - [`QTL_plot_visualizer.R`](https://github.com/AttieLab-Systems-Genetics/qtlApp/blob/main/R/QTL_plot_visualizer.R): Dynamic plot generation.
+  - [`peak_finder.R`](https://github.com/AttieLab-Systems-Genetics/qtlApp/blob/main/R/peak_finder.R): Peak finding algorithms.
+- **Calling Hierarchy**:
+  - `qtlServer.R` (master QTL server)
+    - `mainParServer.R` (parameter controller) &rarr; `traitServer.R` (dataset & trait list display)
+    - `scanServer.R` (disk-backed QTL scan reader)
+    - `peakServer.R` (QTL peaks reader)
+- **Deployment**: Sourced by `app.R` via `qtlSetup.R` to load cached data files and bind reactive servers.
+

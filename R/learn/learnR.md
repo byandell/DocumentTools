@@ -1,6 +1,7 @@
 ---
 title: "R Language Tips & Tricks"
 parent: "Overview of R Material"
+grand_parent: "R Language"
 author: "Brian S. Yandell"
 date: 2017-06-29
 nav_order: 3

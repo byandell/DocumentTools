@@ -2,6 +2,7 @@
 title: "Publish GitHub Pages"
 parent: "Organize Projects with GitHub"
 nav_order: 1
+has_children: true
 ---
 
 # Publish GitHub Pages

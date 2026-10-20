@@ -1,7 +1,8 @@
 ---
 title: "Create Developer Guides (Blueprint)"
 parent: "Prompt Examples"
-nav_order: 6
+grand_parent: "AI (Artificial Intelligence)"
+nav_order: 5
 ---
 
 # Create Developer Guides (Blueprint)
@@ -217,3 +218,70 @@ as part of verification.
 [SQLite](https://www.sqlite.org/))
 and maintain a `guides.md` file recording initial prompts, implementation plan, and completion walkthrough.
 6. **Publish & Integrate Navbar Navigation**: Add developer guide files to the site build targets (`_quarto.yml`), configure a **Developer Guides** navbar dropdown menu, and update `README.md` with dual links (Published Page + GitHub Source).
+
+---
+
+## Case Study: `qtl2shiny` Package Developer Guide
+
+> [!NOTE]
+> This case study illustrates how the R package blueprint was applied to create the developer guide for the [`qtl2shiny`](https://byandell-sysgen.github.io/qtl2shiny/articles/DeveloperGuide.html) package ([source](https://github.com/byandell-sysgen/qtl2shiny/blob/master/vignettes/DeveloperGuide.Rmd)). See also [Use `pkgdown` to Auto-Build GitHub Website](../github/pkgdown.md).
+
+### Prompts
+
+The developer guide structure and content were developed interactively using the following prompts:
+
+1. **Initial Setup**: "Create a developer guide to `qtl2shiny` package in `inst/doc/devel_guide/` folder. This will have a high-level guide to the panels used in `R/qtl2shinyApp.R` and major sections for each of those panels. It should focus on `R/*App.R` files, noting how some are integral to a panel and other are more generic. Consider the `doc/genoDataApp.md` as a model, which should be moved into the folder. Include a `README.md` in that folder. Use this file `inst/doc/devel_guide.md` to document the process of creating this guide."
+2. **Relative Links Conversion**: "Make links in `inst/doc/devel_guide/README.md` relative."
+3. **Table of Contents**: "Provide a TOC to `inst/doc/devel_guide/README.md`. After internal TOC, include a link to `./genoDataApp.md` in anticipation of more guide detail pages like this."
+4. **Genotypes Panel Expansion**: "Develop detailed guides for `genoApp`, `genoPlotApp` and `genoEffectApp`. Make this an expansion (and renaming) of `genoDataApp.md`, reusing material as possible."
+5. **Remaining Panel Guides**: "Using `genoApp.md` as a model, create developer guides for the other panels, including a link back to the developer's guide main page (`README.md`)."
+6. **Prototype History**: "Add to `inst/doc/devel_guide.md` documentation of creating the initial `inst/doc/genoDataApp.md` as a prototype/model for the full developer's guide."
+7. **Prompts Documentation**: "Add a front section on `## Prompts` used to develop this process."
+
+### Prototype Development
+
+Prior to launching the full developer guide, a single-module documentation prototype was created: `inst/doc/genoDataApp.md` (which documented the genotype data submodule `genoDataApp`). This prototype served as a model for the entire developer guide, establishing standard headings and design representations:
+
+- **Module Hierarchy and Entrypoints**: Detailing the standalone entrypoint, the server module, and UI inputs/outputs.
+- **Data Dependencies**: Clarifying what RDS and SQLite files the module reads.
+- **Workflow Reactivity Diagrams**: Utilizing Mermaid flowcharts to visualize reactive logic.
+- **Defensive Design Patterns**: Explaining code defensive checks (e.g. updating sliders reactively to prevent out-of-bounds errors when chromosome coordinates reset).
+
+The success of the `genoDataApp.md` prototype in clarifying module logic led to expanding it into a unified Genotypes guide (`genoApp.md`) and reproducing the same structured format for all other major panels.
+
+### Steps Performed
+
+1. **Analysis of File Structure**:
+   - Identified all 41 `R/*App.R` files on the filesystem.
+   - Traced their loading and execution hierarchy within `R/qtl2shinyApp.R` and `inst/qtl2shinyApp/app.R`.
+
+2. **Creation of Guide Directory**:
+   - Created the directory `inst/doc/devel_guide/` to house developer documentation.
+
+3. **Relocation & Expansion of Genotypes Guide (`genoApp.md`)**:
+   - Relocated and renamed `inst/doc/genoDataApp.md` to [inst/doc/devel_guide/genoApp.md](https://github.com/byandell-sysgen/qtl2shiny/blob/master/inst/doc/devel_guide/genoApp.md).
+   - Expanded the document to provide detailed developer guides for `genoApp` (the container panel), `genoPlotApp` (genotype probability plotter), and `genoEffectApp` (phenotype association effect calculator), reusing the original `genoDataApp` documentation.
+
+4. **Creation of the Master Guide (`README.md`)**:
+   - Created [inst/doc/devel_guide/README.md](https://github.com/byandell-sysgen/qtl2shiny/blob/master/inst/doc/devel_guide/README.md) as the high-level entrypoint.
+   - Documented:
+     - **UI Layout & Navigation**: The Bootstrap 5 layout, reactive linking across tabs, and standardizing panel names.
+     - **Data Routing & Downloader Integration**: How active tabs route plot/table outputs to the external `downr` downloader module.
+     - **Tab Panels & Submodules**: Divided into Hotspots & Phenotypes, Scans, Patterns, Genotypes, and Mediation.
+     - **Utility Classification**: Grouped global controls like `projectApp.R`, `setParApp.R`, `winParApp.R`, `dipParApp.R`, `snpListApp.R`, and data loaders like `probsApp.R` and `kinshipApp.R`.
+     - **Complete File Index**: Indexed and linked every `R/*App.R` file to its corresponding module type (Entrypoint, Integral Submodule, Data Loader, Normalizer, Selector, DB Query, and Generic Utility).
+
+5. **Creation of Detailed Guides for Remaining Panels**:
+   - Created detailed guides for remaining panels, each linking back to [README.md](https://github.com/byandell-sysgen/qtl2shiny/blob/master/inst/doc/devel_guide/README.md):
+     - [hotspotApp.md](https://github.com/byandell-sysgen/qtl2shiny/blob/master/inst/doc/devel_guide/hotspotApp.md) for Hotspots & Phenotypes.
+     - [scanApp.md](https://github.com/byandell-sysgen/qtl2shiny/blob/master/inst/doc/devel_guide/scanApp.md) for Allele & SNP Scans.
+     - [patternApp.md](https://github.com/byandell-sysgen/qtl2shiny/blob/master/inst/doc/devel_guide/patternApp.md) for SDP Pattern Analysis.
+     - [mediateApp.md](https://github.com/byandell-sysgen/qtl2shiny/blob/master/inst/doc/devel_guide/mediateApp.md) for Mediation.
+
+### Rationale for Module Categorization
+
+To maintain a clean separation of concerns, files were categorized based on lifecycle and data scope:
+
+- **Integral Panel Modules**: Highly specific to a particular mathematical analysis (e.g. mediation computations, SDP pattern scans, LOD genome curves). They consume global reactives but do not mutate state consumed by other panels.
+- **Generic/Utility Modules**: Mutate global states (e.g., changing chromosome or peak coordinates via `winPar` / `snpList`) or load large disk-backed data objects (e.g., genotype probabilities via `probs` / `kinship`) consumed globally by all panels.
+

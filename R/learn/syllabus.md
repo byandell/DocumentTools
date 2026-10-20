@@ -1,6 +1,7 @@
 ---
 title: "R Syllabus"
 parent: "Overview of R Material"
+grand_parent: "R Language"
 author: "Brian S Yandell"
 date: 2017-07-01
 nav_order: 1

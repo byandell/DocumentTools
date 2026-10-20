@@ -1,6 +1,7 @@
 ---
 title: "Deploy with GitHub Actions"
 parent: "Publish GitHub Pages"
+grand_parent: "Organize Projects with GitHub"
 nav_order: 2
 ---
 

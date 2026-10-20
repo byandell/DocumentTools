@@ -1,7 +1,8 @@
 ---
 title: "Prepare to Move or Rename a GitHub Repo"
 parent: "Prompt Examples"
-nav_order: 12
+grand_parent: "AI (Artificial Intelligence)"
+nav_order: 11
 ---
 
 # Prepare to Move or Rename a GitHub Repo

@@ -1,6 +1,7 @@
 ---
 title: "Geospatial Resources"
 parent: "Environmental Systems"
+nav_order: 1
 ---
 
 # Geospatial Resources

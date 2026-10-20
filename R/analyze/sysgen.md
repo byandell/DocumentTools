@@ -1,22 +1,8 @@
 ---
 title: "Systems Genetics"
-parent: "Analyze Data"
-author: "Brian S. Yandell"
-date: 2017-06-29
+nav_exclude: true
 ---
 
 # Systems Genetics
 
-One of my primary research areas is systems genetics, and in particular quantitative trait loci.
-This page will have some references and links to some key packages in R.
-
-- [byandell-sysgen GitHub Organization](https://github.com/byandell-sysgen)
-- [R/qtl](http://rqtl.org)
-- [R/qtl2](http://kbroman.org/qtl2/)
-
-References
-
-- [Yandell notes from Jackson Labs talks](http://pages.stat.wisc.edu/~yandell/talk/jax/)
-- [Systems Genetics: Collaborative Cross (UNC)](http://www.csbio.unc.edu/CCstatus/)
-- [Churchill at Jackson Labs](http://churchill-lab.jax.org/)
-- [Systems Genetics Resource (UCLA)](https://systems.genetics.ucla.edu/)
+This content has been consolidated into [Analyze Data (R)](./README.md#systems-genetics-in-r).

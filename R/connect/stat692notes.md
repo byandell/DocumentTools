@@ -1,6 +1,8 @@
 ---
 title: "Stat 692 Fall 2014 Notes"
 parent: "Connect Data Tools Beyond `R`"
+grand_parent: "R Language"
+nav_order: 5
 ---
 
 # Stat 692 Fall 2014 Notes
@@ -72,7 +74,7 @@ Kernighan and Plaugher
 stopifnot()
 ```
 
-See [Bates's stat692 notes](Bates.md)
+See [Bates's stat692 notes](../organize/BatesNotes.md)
 
 ```
 help for package

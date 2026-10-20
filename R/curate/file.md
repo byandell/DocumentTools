@@ -2,7 +2,7 @@
 title: "Reading and Writing Files"
 parent: "Curate R Data"
 grand_parent: "R Language"
-nav_order: 9
+nav_order: 8
 ---
 
 # Reading and Writing Files
