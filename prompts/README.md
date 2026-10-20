@@ -39,11 +39,12 @@ They illustrate a few principles along the way.
   - [Create Developer Guides (Blueprint & Case Study)](./devel_guide.md)
   - [Create Shiny App Gallery](./gallery.md)
   - [Plotly Debouncer & Iframe Embedding](./debouncer.md)
+  - [Migrate Documentation from DSHub](./migrate.md)
   - [AI Agent Rules & CRAFT Templates](./agents_craft_templates.md)
   - [Check External Links & Audit Broken References](./check_links.md)
   - [Prepare to Move a GitHub Repo](./move_repo.md)
   - [Render R Markdown to GitHub Pages](./render_rmd.md)
-  - [Migrate Documentation from DSHub](./migrate.md)
+  - [Refactor Documentation & Navigation](./refactor.md)
 - Additional Pages
   - [Use `pkgdown` to Auto-Build GitHub Website](../github/pkgdown.md)
 
