@@ -1,0 +1,36 @@
+---
+title: "Characters and Strings"
+parent: "Curate R Data"
+grand_parent: "R Language"
+nav_order: 7
+---
+
+# Characters and Strings
+
+- [Jenny Bryan's Data analysis 2: vectors](http://stat545.com/topics.html) ⚠️ (scroll down)
+- [regular expressions](regex.Rmd)
+- [stringr](http://stringr.tidyverse.org/)
+- [tidytext: Julia Silge & David Robinson](http://tidytextminig.com) ⚠️ | [github](https://github.com/juliasilge/tidytext) | [blog](http://juliasilge.com/blog/Tidy-Text-Mining/) ⚠️
+
+Sometimes one may want to change names of columns in a table. Here is what might seem like a logical approach, but it is in fact difficult to read, awkward and repetitive, and slow.
+
+```
+new_names=list()
+l=1
+for(n in colnames(x)){
+      ifelse((l<10), (colnames(x)[l]=c(paste0('Otu000',c(l)))), (colnames(x)[l]=c(paste0('Otu00',c(l))))) 
+      new_names=append(new_names, colnames(x)[l])
+      l=l+1
+}
+```
+
+Here is an improved version:
+
+```
+new_names <- paste0("Otu", stringr::str_pad(seq_along(colnames(x)), 4, pad="0"))
+```
+
+It might be helpful to work up the full example, showing original code and improved version.
+
+- [Andrew Steinberger code](https://github.com/asteinberger9/seq_scripts)
+

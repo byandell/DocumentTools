@@ -39,6 +39,8 @@ They illustrate a few principles along the way.
     - [Create Developer Guide to `qtl2shiny` (Reference Case Study)](./devel_guide_qtl2shiny.md)
   - [Create Shiny App Gallery](./gallery.md)
   - [Plotly Debouncer & Iframe Embedding](./debouncer.md)
+  - [Prepare to Move a GitHub Repo](./move_repo.md)
+  - [Render R Markdown to GitHub Pages](./render_rmd.md)
   - [Create an `AGENTS.md` for a Project](#create-an-agentsmd-for-a-project)
     - [Global Agents Template](./global_agents_template.md)
     - [Agents CRAFT Templates](./agents_craft_templates.md)

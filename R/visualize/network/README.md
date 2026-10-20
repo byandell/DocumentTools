@@ -1,8 +1,10 @@
 ---
 title: "Network Observatins in Connected Graphs"
 parent: "Visualize Data with R"
+grand_parent: "R Language"
 author: "Brian S. Yandell"
 date: 2017-06-29
+has_children: true
 permalink: /R/visualize/network/
 ---
 
@@ -13,10 +15,10 @@ First run `network_data.Rmd` to get data files. Then run igraph or visNetwork Rm
 
 base name | details
 --------- | ---------
-[network_data](network_data.Rmd) | set up network data
-[network_igraph](network_igraph.Rmd) | igraph example with dataset 1
-[network2_igraph](network2_igraph.Rmd) | igraph example with dataset 2
-[network_visNetwork](network_visNetwork.Rmd) | visNetwork example with dataset 1
+[network_data](network_data.md) | set up network data
+[network_igraph](network_igraph.md) | igraph example with dataset 1
+[network2_igraph](network2_igraph.md) | igraph example with dataset 2
+[network_visNetwork](network_visNetwork.md) | visNetwork example with dataset 1
 
 The `network_data.Rmd` file will download the ZIP file, data files, and Katya Ognyanova's tutorial as PDF and R. See **Network Visualization with R**, [Polnet 2016](http://www.kateto.net/polnet2016) by [Katya Ognyanova](http://kateto.net/network-visualization). Katya discusses other packages as well as igraph and visNetwork.
 

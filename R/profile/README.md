@@ -5,6 +5,7 @@ author: "Brian S. Yandell"
 date: 2017-06-29
 permalink: /R/profile/
 nav_order: 6
+has_children: true
 ---
 
 > ## Learning Objectives
@@ -12,13 +13,13 @@ nav_order: 6
 > After completing this material, an individual will be able to
 > profile code to do the following:
 >
-> - [profile](profile.Rmd) code to identify bottlenecks and logic errors
+> - [profile](profile.md) code to identify bottlenecks and logic errors
 >   - traceback, browser, [Rmarkdown breakpoints](https://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-RStudio)
 >   - [Rprof](https://www.r-bloggers.com/profiling-r-code/), [profviz](https://rstudio.github.io/profvis/) ⚠️
->   - [lineprof](lineprof.Rmd)
+>   - [lineprof](lineprof.md)
 >   - [Optimizing code](http://adv-r.had.co.nz/Profiling.html)
 >   - package build and checking; TravisCI
-> - [simulate](simulate.Rmd) data to study statistical properties
+> - [simulate](simulate.md) data to study statistical properties
 >   - examine speed of simulations
 >   - simulate linear model fits
 > - create graphics to diagnose patterns in raw and derived data

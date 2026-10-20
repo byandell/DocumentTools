@@ -1,0 +1,421 @@
+---
+title: "R Functions"
+parent: "Organize Data & Docs"
+grand_parent: "R Language"
+nav_order: 2
+---
+
+# R Functions
+
+Below are some direct quotes from various sources on what functions are and why they are useful for data scientists:
+
+[R4DS](http://r4ds.had.co.nz/functions.html): Functions allow you to automate common tasks in a more powerful and general way than copy-and-pasting. Writing a function has three big advantages over using copy-and-paste:
+
+* You can give a function an evocative name that makes your code easier to understand.
+* As requirements change, you only need to update code in one place, instead of many.
+* You eliminate the chance of making incidental mistakes when you copy and paste (i.e. updating a variable name in one place, but not in another).
+
+... You should consider writing a function whenever you’ve copied and pasted a block of code more than twice (i.e. you now have three copies of the same code).
+... Functional programming (FP) offers tools to extract out this duplicated code, so each common for loop pattern gets its own function. Once you master the vocabulary of FP, you can solve many common iteration problems with less code, more ease, and fewer errors.
+
+[JB](http://stat545.com/cm102_writing-functions.html) ⚠️: My goal here is to reveal the process a long-time useR employs for writing functions. I also want to illustrate why the process is the way it is. Merely looking at the finished product, e.g. source code for R packages, can be extremely deceiving. Reality is generally much uglier … but more interesting! ... Build that skateboard before you build the car or some fancy car part. A limited-but-functioning thing is very useful. It also keeps the spirits high.
+
+[MRC](https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming): Functional code is characterised by one thing: the absence of side effects. It doesn’t rely on data outside the current function, and it doesn’t change data that exists outside the current function.
+
+[CMU](http://www.stat.cmu.edu/~cshalizi/402/programming/writing-functions.pdf): The ability to read, understand, modify and write simple pieces of code is an essential skill for modern data analysis. ... Someone who just knows how to run canned routines is not a data analyst but a technician who tends a machine they do not understand. Fortunately, writing code is not actually very hard, especially not in R. All it demands is the discipline to think logically, and the patience to practice.
+
+- [User Written Function (Quick-R)](https://www.statmethods.net/management/userfunctions.html)
+- [Write your own R functions by Jenny Bryan](http://stat545.com/cm102_writing-functions.html) ⚠️
+    + [part 1: bare bone basics](http://stat545.com/block011_write-your-own-function-01.html)
+    + [part 2: generalize for multiple uses](http://stat545.com/block011_write-your-own-function-02.html)
+    + [part 3: missing values (`NA`) and pass through (`...`)](http://stat545.com/block011_write-your-own-function-03.html)
+    + [linear regression function in detail](http://stat545.com/block012_function-regress-lifeexp-on-year.html)
+    + [split-apply-combine the function to all countries](http://stat545.com/block013_plyr-ddply.html#recall-the-function-we-wrote-to-fit-a-linear-model) ⚠️
+
+- [R4DS book](http://r4ds.had.co.nz/): [Functions](http://r4ds.had.co.nz/functions.html) & [Iteration](http://r4ds.had.co.nz/iteration.html)
+- [Adv-R book](http://adv-r.had.co.nz/): [Functional Programming](http://adv-r.had.co.nz/Functional-programming.html) & [Environments](http://adv-r.had.co.nz/Environments.html)
+- [How to write and debug an R function (R Bloggers)](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/)
+- [Writing R Functions (CMU)](http://www.stat.cmu.edu/~cshalizi/402/programming/writing-functions.pdf)
+- [Introduction to R Functions (UC Berkeley)](https://www.stat.berkeley.edu/~statcur/Workshop2/Presentations/functions.pdf)
+- [DataCamp Tutorial on R functions](https://www.datacamp.com/community/tutorials/functions-in-r-a-tutorial)
+- [Kickstarting R: functions](https://cran.r-project.org/doc/contrib/Lemon-kickstart/kr_rfunc.html)
+- [Practical intro to functional programming using python (MRC)](https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming)
+- [indirection in programming](https://en.wikipedia.org/wiki/Indirection)
+
+miscellaneous notes:
+
+- functional programming (prequel to functions)
+- anonymous function, function closure
+- `stopifnot()` and `if() {stop()}`
+- turning interactive code into a function
+- `return()` values and `invisible()`
+
+* * * * * * *
+
+## Simple function
+
+A simple function has a name, possibly one or more arguments, and a body.
+
+
+``` r
+calcGCPct <- function(xSeq) {
+  length(which(xSeq %in% c("C","G"))) / length(xSeq)
+}
+```
+
+
+``` r
+mySeq <- sample(c("A","C","G","T"), 1000, replace = TRUE)
+
+calcGCPct(mySeq)
+```
+
+```
+## [1] 0.492
+```
+
+``` r
+calcGCPct(mySeq[1:100])
+```
+
+```
+## [1] 0.42
+```
+
+## Arguments
+
+- order: full names, abbreviated names, order
+- assignment: `=` vs. `<-`
+- elipsis (`...`) for arbitrary additional arguments
+- defaults
+- use arguments to avoid cut and paste
+- sensible conventions for argument names
+    + mean something to you
+    + match use in functions you call
+
+
+``` r
+makeVector <- function(aa, ab, ba) { c(aa, ab, ba) }
+makeVector(1, 2, 3)
+```
+
+```
+## [1] 1 2 3
+```
+
+``` r
+makeVector(1, 2, aa = 3)
+```
+
+```
+## [1] 3 1 2
+```
+
+``` r
+makeVector(1, ab = 3,a = 2)
+```
+
+```
+## [1] 2 3 1
+```
+
+``` r
+makeAlphanumericSample <- function( alphabet, 
+                                    seqLength = 1000, 
+                                    useProbabilities = NULL) {
+  if(is.null(useProbabilities)) 
+    useProbabilities <- rep(1/length(alphabet), length(alphabet))
+  sample(alphabet, seqLength, replace=TRUE, prob=useProbabilities)
+}
+
+makeDNASample <- function(...){
+  makeAlphanumericSample(c("A","C","G","T"), ...)
+}
+
+makeDNASample(seqLength = 100)
+```
+
+```
+##   [1] "G" "G" "A" "A" "C" "G" "G" "T" "A" "T" "C" "T" "G" "A" "G" "C" "A" "G" "A" "G" "C"
+##  [22] "G" "C" "T" "A" "G" "G" "G" "T" "A" "G" "T" "C" "C" "A" "G" "C" "A" "A" "G" "T" "A"
+##  [43] "T" "G" "A" "A" "G" "G" "C" "C" "G" "G" "G" "G" "C" "T" "A" "C" "A" "G" "A" "C" "G"
+##  [64] "C" "G" "C" "C" "G" "G" "T" "A" "C" "C" "G" "G" "G" "A" "G" "C" "A" "C" "T" "A" "G"
+##  [85] "A" "T" "C" "A" "G" "T" "G" "A" "C" "G" "A" "C" "C" "T" "T" "T"
+```
+
+``` r
+makeDNASample(seqLength = 100, 
+              useProbabilities = c(0,.5,.5,0))
+```
+
+```
+##   [1] "C" "C" "G" "C" "C" "C" "C" "G" "C" "C" "C" "G" "G" "G" "G" "C" "C" "G" "G" "G" "C"
+##  [22] "G" "C" "G" "G" "G" "G" "C" "G" "G" "G" "G" "C" "G" "C" "C" "C" "C" "G" "G" "C" "G"
+##  [43] "C" "C" "C" "G" "C" "G" "G" "C" "G" "G" "C" "C" "G" "G" "C" "G" "G" "C" "C" "C" "G"
+##  [64] "C" "C" "G" "G" "G" "C" "G" "G" "C" "G" "G" "G" "G" "C" "G" "G" "C" "G" "G" "C" "C"
+##  [85] "C" "G" "C" "C" "G" "G" "G" "C" "C" "C" "C" "G" "G" "G" "C" "G"
+```
+
+## Return values:
+
+- returns last evaluated expression.
+- thus only one object, but object can be a list of objects
+- Hadley Wickham suggests reserving "return(expr)" for early returns.
+
+The following returns `NULL`:
+
+
+``` r
+testFunction <- function(){}
+testFunction()
+```
+
+```
+## NULL
+```
+
+
+``` r
+testFunction <- function(x) 5+7
+testFunction()
+```
+
+```
+## [1] 12
+```
+
+
+``` r
+testFunction <- function(x) { 5+7; 13 }
+testFunction()
+```
+
+```
+## [1] 13
+```
+
+
+``` r
+testFunction <- function(x){
+  if(missing(x)) 
+    return(0)
+  x^2
+}
+testFunction()
+```
+
+```
+## [1] 0
+```
+
+``` r
+testFunction(4)
+```
+
+```
+## [1] 16
+```
+
+## Scope
+
+- R looks first in the local environment for a variable
+- if not found, it looks at the environment of the calling function
+- can force use of Global environment by using <--
+
+
+``` r
+testFunction <- function(x){ 
+  y <- 5
+  x + y 
+}
+rm(y)
+```
+
+
+``` r
+testFunction(2)
+```
+
+```
+## [1] 7
+```
+
+
+``` r
+y
+```
+
+```
+## Error: object 'y' not found
+```
+
+
+``` r
+y <- 2
+testFunction(2)
+```
+
+```
+## [1] 7
+```
+
+``` r
+y
+```
+
+```
+## [1] 2
+```
+
+``` r
+testFunction <- function(x) {
+  v1 <- x + y
+  y <- 10
+  v1 + y
+}
+y<-2
+testFunction(4)
+```
+
+```
+## [1] 16
+```
+
+
+``` r
+testFunction <- function(x){
+  y <<- 5
+  x + y
+}
+rm(y)
+testFunction(2)
+```
+
+```
+## [1] 7
+```
+
+``` r
+y
+```
+
+```
+## [1] 5
+```
+
+## Functions and environments
+
+A function has its own environment. Within a function, you can define a function with its own environment,
+which can be real handy. Karl Broman uses this in [R/qtl2](http://kbroman.org/qtl2/assets/vignettes/user_guide.html#connecting_to_snp_and_gene_databases) to query an SQL database for genes and variants. The idea draws on [Adv-R book: Environments](http://adv-r.had.co.nz/Environments.html).
+The details can be found in for instance [create_gene_query_func](https://github.com/rqtl/qtl2/blob/master/R/create_gene_query_func.R) ⚠️, but here is the basic idea. Set up a `create` function to create a function that calls your function. Here, we want the created function to have arguments `chr`, `start` and `end` (chromosome name, and `start` and `end` of region of interest to extract information). Your function has these arguments and more, specifically a database file names (`dbfile`).
+
+
+``` r
+create_query_func <-function(dbfile) {
+  function(chr, start, end) {
+    mydbfunc(chr, start, end, dbfile)
+  }
+}
+```
+
+Now you run this with the name of your `dbfile` to create the function that will be called.
+
+
+``` r
+qf <- create_query_func("blah")
+```
+
+You can now call this as `qf("1", 34, 35)` to get information on chromosome "1" between 34 and 35, without even knowing where the database file is or what type it is. In particular, you can pass this function as an argument to another function.
+
+If you examine this function, you will see it has a unique environment,
+
+
+``` r
+qf
+```
+
+```
+## function (chr, start, end) 
+## {
+##     mydbfunc(chr, start, end, dbfile)
+## }
+## <environment: 0xb76e00078>
+```
+
+with a name, which you can identify with
+
+
+``` r
+environment(qf)
+```
+
+```
+## <environment: 0xb76e00078>
+```
+
+What's more, you can list objects in this environment
+
+
+``` r
+ls(environment(qf))
+```
+
+```
+## [1] "dbfile"
+```
+
+or go further and look at those objects in detail to see the value of `dbfile` (or other arguments you set up)
+
+
+``` r
+ls.str(environment(qf))
+```
+
+```
+## dbfile :  chr "blah"
+```
+
+Further, you can save this function, complete with its environment using `saveRDS`, to later retrieve it with `readRDS`.
+
+
+``` r
+saveRDS(qf, file = "qf.rds")
+qf <- readRDS("qf.rds")
+```
+
+Here is a more complicated example. This uses the [AnnotationHub](https://bioconductor.org/packages/release/bioc/html/AnnotationHub.html) package, which is a central location to discover genomic files (see [HowTo](http://bioconductor.org/packages/devel/bioc/vignettes/AnnotationHub/inst/doc/AnnotationHub-HOWTO.html)).
+The creation function pulls in the [Ensembl](https://ensembl.org) genes for mouse, stores them in an object called `ensembl`, and returns a function that has the `ensembl` object embedded. The `AnnotationHub` and all its [Bioconductor](https://www.bioconductor.org/) helper packages (there are many) are needed to create the gene query, but subsequent use of `query_gene_AH` does not require anything from `Bioconductor`. The `query_gene_AH` function need only be recreated whenever the `AnnotationHub` entries change substantially. This created function can be saved using `saveRDS` as indicated above, and then transported to use in various pipelines.
+
+
+``` r
+create_gene_query_func_AH <- function(pattern = c("ensembl", "gtf", "mus musculus", "90"),
+                                      filename = "Mus_musculus.GRCm38.90.gtf",
+                                      chr_field = "seqnames",
+                                      start_field = "start", stop_field = "end",
+                                      filter = NULL) {
+  if(is.null(pattern) & is.null(filename))
+      stop("must provide pattern and filename")
+  
+  # Visit AnnotationHub to get ensemble entries.
+  hub <- AnnotationHub::AnnotationHub()
+  hub <- AnnotationHub::query(hub, pattern)
+  ensembl <- hub[[names(hub)[hub$title == filename]]]
+  ensembl <- as.data.frame(ensembl[ensembl$type == "gene"])
+  colnames(ensembl)[colnames(ensembl) == "gene_id"] <- "ensembl_gene"
+  colnames(ensembl)[colnames(ensembl) == "gene_name"] <- "symbol"
+  ensembl[[start_field]] <- ensembl[[start_field]] * 10^-6
+  ensembl[[stop_field]]  <- ensembl[[stop_field]] * 10^-6
+  ensembl <- ensembl[, sapply(ensembl, function(x) !all(is.na(x)))]
+
+  function(chr, start = NULL, end = NULL) {
+    subset_ensembl <- ensembl[[chr_field]] == chr
+    if(!is.null(start))
+      subset_ensembl <- subset_ensembl & (ensembl[[start_field]] >= start)
+    if(!is.null(end))
+      subset_ensembl <- subset_ensembl & (ensembl[[stop_field]] >= end)
+    ensembl[subset_ensembl,]
+  }
+}
+cat("AnnotationHub call\n", file = stderr())
+query_gene_AH <- create_gene_query_func_AH()
+```

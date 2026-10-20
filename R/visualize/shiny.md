@@ -1,0 +1,78 @@
+---
+title: "Shiny Web Applications"
+parent: "Visualize Data with R"
+grand_parent: "R Language"
+nav_order: 2
+---
+
+# Shiny Web Applications
+
+Learning objectives: Use [shiny](http://shiny.rstudio.com) to share results on the web.
+
+- basic shiny app
+- diagnostics and tracing errors
+- modules for larger projects
+- [widgets](http://shiny.rstudio.com/gallery/widget-gallery.html)
+
+Joe Cheng, guru of Shiny, said the following at the rstudio2017::conf in January 2017:
+
+- Python-based interactive apps mature by added more javascript, which can be challenging; R/Shiny based interactive apps mature with tools in R, with the javascript and HTML hidden in R helper functions.
+- Shiny server mimics the 2-way client/server functionality by embedding a small server in your brower during use; that helps keep track of the messages back and forth, and protects against connection failure. Shiny server works better with https than http, as the encryption protects the shiny packets from corruption by the browser.
+
+* * * 
+
+Examples from Gallery
+
+- [Old Faithful](http://shiny.rstudio.com/gallery/faithful.html)
+- [Update Inputs](http://shiny.rstudio.com/gallery/update-input-demo.html)
+- [CDC with bookmarks](https://gallery.shinyapps.io/CDCPlot/)
+
+References
+
+- [Gallery](http://shiny.rstudio.com/gallery/) | [Tutorial](http://shiny.rstudio.com/tutorial/) | [Webinars](https://www.rstudio.com/resources/webinars/) [Webinar Github](https://github.com/rstudio/webinars) | [Articles](http://shiny.rstudio.com/articles/)
+- [Shiny Developer Conference 2016](https://www.rstudio.com/resources/webinars/shiny-developer-conference/) | [Materials](https://github.com/rstudio/ShinyDeveloperConference) | [Blog Announcement](https://blog.rstudio.org/2016/05/05/shinydevcon-videos-now-available/)
+- Contributions
+    + [R Graph Catalog (Jenny Bryan)](http://shiny.stat.ubc.ca/r-graph-catalog/) ⚠️ | [r-graph-catalog GitHub repository](https://github.com/jennybc/r-graph-catalog)
+    + [Zev Ross Shiny Material](http://zevross.com/blog/2016/04/19/r-powered-web-applications-with-shiny-a-tutorial-and-cheat-sheet-with-40-example-apps/) | [Jenny Bryan Interactive Tutorial](http://www.r-bloggers.com/building-shiny-apps-an-interactive-tutorial/)
+    + [Steph Locke Shiny Design Patterns](http://itsalocke.com/tag/shiny-design-patterns/) ⚠️ ([github](https://github.com/stephlocke/shinymodulesdesignpatterns))
+    + [Garrett Grolemund Blog](https://blog.rstudio.org/author/garrettgman/) ⚠️
+- <http://www.shinyapps.io/> | <http://www.rstudio.com//products.connect> ⚠️
+    
+Building blocks for shiny
+
+- [ShinyDashboard](https://rstudio.github.io/shinydashboard/)
+- [Shiny Download Files](http://shiny.rstudio.com/articles/download.html) | [Download Basic Plot](https://groups.google.com/forum/m/#!topic/shiny-discuss/u7gwXc8_vyY) | [Download with ggsave](http://stackoverflow.com/questions/14810409/save-plots-made-in-a-shiny-app) | [Download multiple ggplots](http://stackoverflow.com/questions/12234248/printing-multiple-ggplots-into-a-single-pdf-multiple-plots-per-page) | gridExtra
+- [reactiveFileReader](http://shiny.rstudio.com/reference/shiny/latest/reactiveFileReader.html) | [Progress](http://shiny.rstudio.com/reference/shiny/latest/Progress.html)
+- [insertUI and renderUI](https://github.com/bborgesr/rstudio-conf2017)
+
+Miscellaneous
+
+- [dynamic input example](https://gist.github.com/wch/4211337)
+- include Rmarkdown in shiny app: `includeHTML(rmarkdown::render("myfile.Rmd"))`
+- d3 and shiny
+    + [Binding d3 to shiny](http://stackoverflow.com/questions/26650561/binding-javascript-d3-js-to-shiny)
+    + [Shiny d3 plot](http://www.r-bloggers.com/d3-and-r-interacting-through-shiny/)
+    + [d3 Shiny Integration](http://myinspirationinformation.com/visualisation/d3-js/integrating-d3-js-into-r-shiny/) ⚠️
+Network Visualization
+
+
+Debugging Shiny
+
+- [options(shiny.reactlog=TRUE)](http://shiny.rstudio.com/reference/shiny/latest/showReactLog.html) ⚠️ then <kbd>`command`</kbd>-<kbd>`fn`</kbd>-<kbd>`F3`</kbd>
+- `cat(file=stderr(), ...)`
+- `options(shiny.error=browser)`
+- Web browser: right-click inspect element
+- JavaScript Dev mode `OSX`
+- Brian Yandell stuff
+    + [Shiny Modules](https://github.com/byandell/shiny_module)
+    + [corheatmap github](https://github.com/byandell/corheatmap)
+    + [qtl2shiny github](https://github.com/byandell/qtl2shiny)
+
+Advanced tools (javascript, updated URLs, widgets)
+
+- [ShinyURL](https://gallery.shinyapps.io/shinyURL)
+- [Custom objects](http://shiny.rstudio.com/articles/building-outputs.html) 
+- [HTMLWidgets Showcase](http://www.htmlwidgets.org/showcase_leaflet.html) | [D3 Heatmap](http://www.htmlwidgets.org/showcase_d3heatmap.html) ⚠️
+- Karl Broman’s [Horizon](https://github.com/kbroman/horizon) | [Notes on Making Horizon](https://github.com/kbroman/horizon/blob/master/inst/doc/making_horizon.md)
+
+

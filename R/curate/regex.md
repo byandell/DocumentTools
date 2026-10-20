@@ -1,0 +1,186 @@
+---
+title: "Regular Expressions (regex)"
+parent: "Curate R Data"
+grand_parent: "R Language"
+nav_order: 8
+---
+
+# Regular Expressions (regex)
+
+- <http://regexr.com>: Test out your reg expressions before you use them (specify your test expression and it will highlight in a sample document (which you can change) the matches.
+- [regex base-R cheat sheet](http://www.endmemo.com/program/R/grep.php) ⚠️
+- [Helpful examples on grouping](http://www.regular-expressions.info/rlanguage.html)
+- [Examples on subsetting matches](http://www.dummies.com/how-to/content/how-to-use-regular-expressions-in-r.html) ⚠️
+- [Getting strsplit in the right format with sapply](http://www.r-bloggers.com/regular-expressions-in-r-vs-rstudio/)
+- [RegexBuddy](http://www.regexbuddy.com/rlanguage.html) 
+
+
+Drew’s example (using `gsub`): 
+
+Searching through these ugly column headings in data frame called `x`:
+
+```
+Raw Data (595) 1 - 0 h  
+Raw Data (595) 5 - 0 h 30 min 
+Raw Data (595) 7 - 1 h  
+Raw Data (595) 10 - 1 h 30 min 
+Raw Data (595) 13 - 2 h  
+Raw Data (595) 16 - 2 h 30 min 
+```
+
+
+``` r
+x <- read.delim("x.txt",header=F,stringsAsFactors = FALSE)
+```
+
+```
+## Error in `file()`:
+## ! cannot open the connection
+```
+
+I used the following `gsub()` statement (within an `apply()` function, but that’s not important here) on data frame `x`:
+
+
+``` r
+gsub('\\.*(\\d*) h (\\d*).*', '\\1.0\\2',x[[1]])
+```
+
+```
+## Error:
+## ! object 'x' not found
+```
+
+(On a second look, it’s possible the initial `\\.*` isn’t necessary, but as always, test your regex’s out before executing them)
+
+perl example
+
+
+``` r
+gsub('\\.*(\\d*)\\sh\\s(\\d*).*', '\\1.0\\2',x[[1]], perl=T)
+```
+
+```
+## Error:
+## ! object 'x' not found
+```
+
+`\\s` means “space” which would also match `\\t` and `\\n`  
+`\\d{2}` means 2 digits  
+`[5-9]  [a-z]  \W  \D`
+
+And it catches the following substrings (highlighted in cyan):
+
+```
+Raw Data (595) 1 - 0 h  
+Raw Data (595) 5 - 0 h 30 min 
+Raw Data (595) 7 - 1 h  
+Raw Data (595) 10 - 1 h 30 min 
+Raw Data (595) 13 - 2 h  
+Raw Data (595) 16 - 2 h 30 min 
+```
+
+
+``` r
+d <- data.frame(c("Raw Data (595) 1 - 0 h",  
+  "Raw Data (595) 5 - 0 h 30 min",
+  "Raw Data (595) 7 - 1 h",
+  "Raw Data (595) 10 - 1 h 30 min",
+  "Raw Data (595) 13 - 2 h",
+  "Raw Data (595) 16 - 2 h 30 min" ))
+class(d)
+```
+
+```
+## [1] "data.frame"
+```
+
+``` r
+dim(d)
+```
+
+```
+## [1] 6 1
+```
+
+``` r
+dl <- as.list(d)
+```
+
+```
+[1] 6 1
+[1] "data.frame"
+```
+Perl =T version
+
+
+``` r
+gsub('\\.*(\\d*)\\sh\\s(\\d*).*', '\\1.0\\2',d, perl=T)
+```
+
+```
+## [1] "c(\"Raw Data (595) 1 - 0 h\", \"Raw Data (595) 5 - 0.030"
+```
+
+``` r
+gsub('\\.*(\\d*)\\sh\\s(\\d*).*', '\\1.0\\2',dl, perl=T)
+```
+
+```
+## [1] "c(\"Raw Data (595) 1 - 0 h\", \"Raw Data (595) 5 - 0.030"
+```
+
+```
+[1] "c(1, 5, 6, 2, 3, 4)"
+[1] "c(1, 5, 6, 2, 3, 4)"
+```
+
+Non Perl version:
+
+
+``` r
+gsub('\\.*(\\d*) h (\\d*).*', '\\1.0\\2',d)
+```
+
+```
+## [1] "c(\"Raw Data (595) 1 - 0 h\", \"Raw Data (595) 5 - 0.030"
+```
+
+``` r
+gsub('\\.*(\\d*) h (\\d*).*', '\\1.0\\2',dl)
+```
+
+```
+## [1] "c(\"Raw Data (595) 1 - 0 h\", \"Raw Data (595) 5 - 0.030"
+```
+
+```
+[1] "c(1, 5, 6, 2, 3, 4)"
+[1] "c(1, 5, 6, 2, 3, 4)"
+```
+
+Drew Doering used this in the context of converting time values in the format “X h Y min” to a decimal hour format, to facilitate downstream analysis/plotting. You can see that specific command in-context here on line 49: <https://github.com/dtdoering/grofitr/blob/b70f82755e83ad27b4ebe07c9e78b3cc36159351/findRates.R>
+
+However, playing with this in my own instance of RStudio, it doesn’t seem to be doing what I wanted it to do with that specific command. Here is a reproducible example you can use to replace that last command at the bottom:
+
+
+``` r
+timePoints <- c("Raw Data (595) 1 - 0 h",
+                "Raw Data (595) 5 - 0 h 30 min",
+                "Raw Data (595) 7 - 1 h", 
+                "Raw Data (595) 10 - 1 h 30 min", 
+                "Raw Data (595) 13 - 2 h", 
+                "Raw Data (595) 16 - 2 h 30 min",
+                "Raw Data (595) 50 - 21 h 30 min")
+
+sapply(timePoints,
+       function(x) gsub('.* - (\\d*) h( (\\d*).*)?', 
+                        '\\1.0\\3',
+                        x, perl = F), 
+       USE.NAMES = FALSE)
+```
+
+```
+## [1] "0.0"    "0.030"  "1.0"    "1.030"  "2.0"    "2.030"  "21.030"
+```
+
+Drew would then go on to do some string operations and arithmetic to divide the right side of the decimal by 60.

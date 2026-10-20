@@ -23,3 +23,8 @@ data/
 
 # Link checker report
 link_check_report.md
+
+# Temporary knitr and download artifacts
+figure/
+**/figure/
+*.zip

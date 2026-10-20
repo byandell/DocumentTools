@@ -1,0 +1,62 @@
+---
+title: "Linear Models"
+parent: "Analyze Data"
+grand_parent: "R Language"
+nav_order: 3
+---
+
+# Linear Models
+
+Regression and analysis of variance (anova or ANOVA) are the basic work horses of statistical inference. Regression measures how response changes with predictor along a straight line. Anova is used to compare means for two or more groups. Regression and anova are often lumped together as aspects of linear models. In fact, analysis of covariance (ancova or ANCOVA) is a simple way to have separate (possibly parallel--same slope) regression lines for each group.
+
+`aov()` & `lm()` commands both fit linear models, with `aov` focused on comparing "factors" (categorical predictors) and `lm` focused on "regressors" (continuous predictors). Actually, `lm` can be used for both, but be careful how you set up factors. The `anova()` and `drop1()` commands are used to get tabular summaries of fits with `aov` or `lm`. `anova` gives sequential (Type I) tests, while `drop1` gives adjusted (Type III) tests.
+
+- [Analysis of variance](http://www.statmethods.net/stats/anova.html)
+
+Several useful packages have been developed for linear models:
+
+- [car package](https://cran.r-project.org/web/packages/car/) ([companion to Fox & Weisberg book](http://socserv.socsci.mcmaster.ca/jfox/Books/Companion/index.html) ⚠️)
+- [lsmeans package](https://cran.r-project.org/web/packages/lsmeans/)
+- [regress package](https://cran.r-project.org/web/packages/regress/)
+
+Regression with more than one predictor gets complicated, and there is no one best way to proceed. However, there are guidelines and useful tools.
+
+- [multiple regression from Quick-R](http://www.statmethods.net/stats/regression.html)
+- [step: stepwise model fits](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/step.html)
+- [stepwise package](https://cran.r-project.org/web/packages/stepwise/)
+- [variable selection](http://www.stat.columbia.edu/~martin/W2024/R10.pdf) ⚠️
+
+
+## Models that are not linear
+
+There are two types of models that are not linear. One involves models with non-normal errors, such as arises with counts. Counts might be of yes/no (binomial and logistic) situations or counts of some event (Poisson). There are more general approaches, hence the complicated name of generalized linear models. Underlying these models is a linear relationship. For instance, Poisson counts assume the `log` of the mean depends linearly on predictors, while binomial counts assume the logit of the proportion (`logit(p)` = `log(p)/log(1-p)`) depends linearly on predictors.
+
+The other type are models in which predictors have a non-linear relation with response, such as `y ~ x/(1+w)`. 
+
+- [generalized linear models](http://www.statmethods.net/advstats/glm.html)
+    + Poisson test (`poisson.test`)
+    + binomial test (`binom.test`)
+    + Poisson regression
+    + logistic regression (`glm`)
+- [non-linear models](https://www.r-bloggers.com/first-steps-with-non-linear-regression-in-r/)
+    + [nls package](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/nls.html)
+
+## Mixed models
+
+Some models mix so-called fixed and random effects. Fixed are as above. Random effects account for the fact that the observed levels of components of a model might be uncertain or be sampled from some broader class of possible levels. Sometimes these random components are interpreted as having a distribution of interest, hence Bayesian.
+
+- [lmer in lme4](https://github.com/lme4/lme4/)
+- [lmmlite](http://kbroman.org/lmmlite/)
+- [gemma](http://www.xzlab.org/software.html)
+- [glmmnet package](https://cran.r-project.org/web/packages/glmnet/)
+- [Andrew Gelman](http://www.stat.columbia.edu/~gelman/) ⚠️'s [arm package](http://www.stat.columbia.edu/~gelman/arm/software/) ⚠️ & [stan Platform](http://mc-stan.org/)
+- [Mixed Models in R: lme4, nlme, or both?](https://freshbiostats.wordpress.com/2013/07/28/mixed-models-in-r-lme4-nlme-both/)
+- [Statistics with R: Mixed Effects Models (Carpentries Style)](https://mq-software-carpentry.github.io/statistics-with-r/05-mixed-effects/index.html)
+- [Coding Club: Introduction to Linear Mixed Models](https://ourcodingclub.github.io/tutorials/mixed-models/)
+- [Coursera: Introduction to Mixed Effects Models](https://www.coursera.org/lecture/designexperiments/30-introduction-to-mixed-effects-models-4kVEo)
+- [R BGU Course: 8 Linear Mixed Models (JD Rosenblatt)](http://www.john-ros.com/Rcourse/lme.html)
+- [R Course: 6.1 Linear Mixed Models (P Piccinini)](https://pagepiccinini.com/r-course/lesson-6-part-1-linear-mixed-effects-models/)
+- [PhD Training Workshop: Statistics in R: 15 Linear Model and Mixed Methods (A Ushakova, M Valasek)](https://bookdown.org/animestina/R_Manchester/linear-model-and-mixed-methods.html)
+- [Generalized Linear Mixed-Effects Modeling in R (S Anderson)](https://github.com/seananderson/glmm-course)
+- [Statistical Modeling and Mixed Models with R (Singmann)](https://github.com/singmann/mixed_model_workshop)
+

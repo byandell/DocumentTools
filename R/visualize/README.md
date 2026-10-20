@@ -4,6 +4,7 @@ parent: "R Language"
 author: "Brian S. Yandell"
 date: 2017-06-29
 nav_order: 3
+has_children: true
 permalink: /R/visualize/
 ---
 
@@ -18,13 +19,13 @@ permalink: /R/visualize/
 > * develop interactive graphics ([plotly](https://plot.ly/ggplot2/), [ggvis](http://blog.revolutionanalytics.com/2014/06/interactive-web-ready-ggplot2-style-graphics-with-ggvis.html) ⚠️)
 > * examine related packages ([cowplot](https://github.com/wilkelab/cowplot), [GGally](https://ggobi.github.io/ggally/), [grid viewports](https://stat.ethz.ch/R-manual/R-devel/library/grid/doc/viewports.pdf))
 > * create heatmaps ([pheatmap](https://github.com/raivokolde/pheatmap))
-> * [network](analyze/network/README.md) observations in connected graphs
-> * use [shiny](shiny.Rmd) to share results on the web
+> * [network](network/) observations in connected graphs
+> * use [shiny](shiny.md) to share results on the web
 
 ## Contents
 
-* [ggplot2 and related stuff](ggplot2.Rmd)
-* [shiny apps](shiny.Rmd)
+* [ggplot2 and related stuff](ggplot2.md)
+* [shiny apps](shiny.md)
 * [Visualize Links](visualize.md)
 * [Graphics Links](graphics.md)
 * [Network Observatins in Connected Graphs](network/)

@@ -4,6 +4,7 @@ parent: "R Language"
 author: "Brian S. Yandell"
 date: 2017-06-29
 nav_order: 4
+has_children: true
 permalink: /R/organize/
 ---
 
@@ -15,10 +16,10 @@ permalink: /R/organize/
 > organize data tasks in a variety of ways.
 >
 > - document ongoing work with [R Markdown](http://rmarkdown.rstudio.com/)
-> - create [functions](function.Rmd) to collapse repeated steps into one-line "verbs"
+> - create [functions](function.md) to collapse repeated steps into one-line "verbs"
 > - use [git and github](http://happygitwithr.com/) to keep track of code and document changes with version control
-> - organize documentation and data tasks into [packages](package.Rmd) (`R` libraries) to share
-> - create and manage external [database](database.md) with `R` objects
+> - organize documentation and data tasks into [packages](package.md) (`R` libraries) to share
+> - create and manage external database with `R` objects
 >   - see [databases](https://db.rstudio.com/)
 >   - understand use and limitations of CSV and XLS file formats
 >   - understand and use SQLite in `R`; learn about DBI, dbplyr
@@ -27,10 +28,10 @@ permalink: /R/organize/
 ## Contents
 
 - [Rmarkdown Report Writing](Rmarkdown.md)
-- [Rmarkdown Example](RmarkdownExample.Rmd)
-- [Function Examples](function.Rmd)
-- [SQLite & dplyr](SQLiteDplyr.Rmd)
-- [R Packages](package.Rmd)
+- [Rmarkdown Example](RmarkdownExample.md)
+- [Function Examples](function.md)
+- [SQLite & dplyr](SQLiteDplyr.md)
+- [R Packages](package.md)
 - [Organizing data in R (Doug Bates)](BatesNotes.md)
 
 ## References

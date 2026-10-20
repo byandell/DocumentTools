@@ -4,6 +4,7 @@ parent: "R Language"
 author: "Brian S. Yandell"
 date: 2017-06-29
 nav_order: 2
+has_children: true
 permalink: /R/curate/
 ---
 
@@ -25,28 +26,28 @@ This and other lessons assume users already have some experience with R, for ins
 
 ## Read, Manipulate and Display Data
 
-* [Working with data tables in R](curate/data_tables.Rmd)
-* [Examples using `for` and `apply`](curate/applyExample.Rmd)
+* [Working with data tables in R](data_tables.md)
+* [Examples using `for` and `apply`](applyExample.md)
 
 ## Work with Data Frames using Tidyverse tools
 
-* [sub_lesson recasting data.frame examples](curate/intro_dplyr.Rmd)
-* [Tidyverse split-apply-combine example](curate/tidyverse.Rmd)
-* [purrr example using `map` & `transpose`](curate/purrr.Rmd)
-* [more tidyverse on `portal_mammals` data](curate/species.Rmd)
+* [sub_lesson recasting data.frame examples](intro_dplyr.md)
+* [Tidyverse split-apply-combine example](tidyverse.md)
+* [purrr example using `map` & `transpose`](purrr.md)
+* [more tidyverse on `portal_mammals` data](species.md)
 
-## Character String Operations to Clean Cata
+## Character String Operations to Clean Data
 
-* [characters and strings](curate/string.Rmd)
-* [regular expressions (regex)](curate/regex.Rmd)
+* [characters and strings](string.md)
+* [regular expressions (regex)](regex.md)
 
 ## Create Functions to Collapse Steps
 
-[examples of functions](curate/function.Rmd)
+* [examples of functions](../organize/function.md)
 
 ## Save Cleaned up Data to External Files
 
-[read and write files](curate/file.Rmd)
+* [read and write files](file.md)
 
 ---
 
@@ -61,12 +62,12 @@ curate data in `R`.
 
 file | contents
 ---- | --------
-[data_tables](data_tables.Rmd) | Working with data tables in R
-[applyExample](applyExample.Rmd) | Examples using `for` and `apply`
-[intro_dplyr](intro_dplyr.Rmd) | sub_lesson recasting data.frame examples
-[tidyverse](tidyverse.Rmd) | Tidyverse split-apply-combine example
-[purrr](purrr.Rmd) | another example using `map` & `transpose`
-[species](species.Rmd) | `dplyr`, `tidyr` and `purrr` ideas with `portal_mammals` data
-[string](string.Rmd) | characters and strings
-[regex](regex.Rmd) | regular expressions
-[file](file.Rmd) | read and write files
+[data_tables](data_tables.md) | Working with data tables in R
+[applyExample](applyExample.md) | Examples using `for` and `apply`
+[intro_dplyr](intro_dplyr.md) | sub_lesson recasting data.frame examples
+[tidyverse](tidyverse.md) | Tidyverse split-apply-combine example
+[purrr](purrr.md) | another example using `map` & `transpose`
+[species](species.md) | `dplyr`, `tidyr` and `purrr` ideas with `portal_mammals` data
+[string](string.md) | characters and strings
+[regex](regex.md) | regular expressions
+[file](file.md) | read and write files

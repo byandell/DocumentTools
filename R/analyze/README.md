@@ -5,6 +5,7 @@ author: "Brian S. Yandell"
 date: 2017-06-29
 permalink: /R/analyze/
 nav_order: 5
+has_children: true
 ---
 
 # Analyze Data
@@ -27,13 +28,13 @@ do first steps to analyze data in `R`.
 - organize linear model results with [broom](https://github.com/tidyverse/broom), [car](https://cran.r-project.org/web/packages/car/index.html), or [lsmeans](https://github.com/rvlenth/lsmeans) packages
 - clustering and trees, building networks
 - models that are not linear: generalized linear models, non-linear models
-- [formulas](Formulas.Rmd)
+- [formulas](Formulas.md)
 
 file | contents
 ---- | --------
-[correlate](correlate.Rmd) | co-relate variables (columns) of data
-[covary](covary.Rmd) | how do columns co-vary together
-[linear_model](linear_model.Rmd) | linear models
+[correlate](correlate.md) | co-relate variables (columns) of data
+[covary](covary.md) | how do columns co-vary together
+[linear_model](linear_model.md) | linear models
 [sysgen](sysgen.md) | systems genetics
 
 Douglas Bates
