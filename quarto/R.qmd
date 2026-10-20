@@ -32,7 +32,7 @@ format:
 - Designed for collaborative teams to use R effectively to address data science problems.
 - Originally developed for the **[COMBEE R Study Group](https://github.com/ComBEE-UW-Madison/RStudyGroup)** at UW-Madison.
 - Migrated to the [R for Teams in the Data Sciences](https://github.com/UW-Madison-DataScience/R_for_data_sciences/) repository.
-- Now consolidated and maintained locally in this [Document Digital Tools](../R/) project.
+- Now consolidated and maintained locally in this [Document Tools](../R/) project.
 :::
 
 ::: {.column width="40%"}

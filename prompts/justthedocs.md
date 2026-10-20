@@ -30,7 +30,7 @@ directly on GitHub Pages without installing local gems, configure `_config.yml` 
 ```yaml
 # Site branding and URLs
 title: "Document Tools"
-description: "Documentation for Digital Tools"
+description: "Document Tools"
 url: "https://byandell.github.io"
 baseurl: "/DocumentTools"
 
@@ -69,7 +69,7 @@ Specify `permalink: /` to render this page at the root URL.
 
 ```yaml
 ---
-title: "Documentation for Digital Tools"
+title: "Document Tools"
 nav_order: 1
 permalink: /
 ---

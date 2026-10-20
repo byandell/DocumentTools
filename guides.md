@@ -1,6 +1,6 @@
 ---
 title: "Create Guides"
-parent: "Document Digital Tools"
+parent: "Document Tools"
 nav_order: 7
 has_children: true
 ---

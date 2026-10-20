@@ -1,6 +1,6 @@
 ---
 title: "Shiny Apps"
-parent: "Document Digital Tools"
+parent: "Document Tools"
 nav_order: 5
 has_children: true
 permalink: /shiny/

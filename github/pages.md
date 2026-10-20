@@ -67,7 +67,7 @@ ESIIL Research (`docs/` folder using
 ### My Documentation GitHub Pages
 
 I developed
-[Document Digital Tools](https://byandell.github.io/DocumentTools)
+[Document Tools](https://byandell.github.io/DocumentTools)
 to serve as a reference for the Digital Tools I use.
 In the process, I learned how to use
 [Just-the-Docs](../prompts/justthedocs.md)
@@ -85,7 +85,7 @@ The corrected front matter, say for the top
 
 ```
 ---
-title: "Documentation for Digital Tools"
+title: "Document Tools"
 nav_order: 0
 permalink: /
 ---

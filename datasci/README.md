@@ -1,6 +1,6 @@
 ---
 title: "Data Sciences"
-parent: "Document Digital Tools"
+parent: "Document Tools"
 has_children: true
 nav_order: 8
 permalink: /datasci/
@@ -25,7 +25,7 @@ their environment and health to make decision.
 All of these varied domains and interests have needs for data sciences insights.
 This page is an effort to pull together some practical tools in the context
 of my broader project to
-[Document Digital Tools](/).
+[Document Tools](/).
 
 Examining relationships in complex systems presents many challenges.
 Many things are correlated, but not necessarily causally related.
@@ -104,7 +104,7 @@ Cumulative measures are much better behaved for a variety of reasons.
   - [R for Data Science by Garrett Grolemund, Mine Çetinkaya-Rundel and Hadley Wickham (2nd Edition)](https://r4ds.hadley.nz/)
   - [Practical Data Analysis for Designed Experiments by Brian S. Yandell (1997)](https://www.stat.wisc.edu/~yandell/pda/)
   - [Visualizing Data by William S. Cleveland (1993)](https://archive.org/details/visualizingdata00will/)
-- [Document Digital Tools](/)
+- [Document Tools](/)
   - [Curate R Data](/R/curate/)
   - [Visualize Data with R](/R/visualize/)
   - [Analyze Data with R](/R/analyze/)

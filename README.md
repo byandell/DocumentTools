@@ -1,10 +1,10 @@
 ---
-title: "Document Digital Tools"
+title: "Document Tools"
 nav_order: 0
 permalink: /
 ---
 
-# [Document Digital Tools](https://byandell.github.io/DocumentTools)
+# [Document Tools](https://byandell.github.io/DocumentTools)
 
 - [My Documentation Journey](#my-documentation-journey)
 - [R Language](./R/) ([slides](./quarto/R.html))

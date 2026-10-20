@@ -74,7 +74,7 @@ GITHUB_CONFIG$blob_url  <- sprintf("%s/blob/%s", GITHUB_CONFIG$repo_url, GITHUB_
 ```yaml
 # _config.yml
 title: "Document Tools"
-description: "Document Digital Tools"
+description: "Document Tools"
 url: "https://byandell.github.io"
 baseurl: "/DocumentTools"
 

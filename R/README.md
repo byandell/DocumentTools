@@ -1,6 +1,6 @@
 ---
 title: "R Language"
-parent: "Document Digital Tools"
+parent: "Document Tools"
 nav_order: 1
 has_children: true
 permalink: /R/

@@ -182,7 +182,7 @@ with a project-level `AGENTS.md` organized via the
 
 **Examples:**
 
-- [Document Digital Tools `AGENTS.md`](https://github.com/byandell/DocumentTools/blob/main/AGENTS.md)
+- [Document Tools `AGENTS.md`](https://github.com/byandell/DocumentTools/blob/main/AGENTS.md)
 - [Agents and Workspace Rules Guide](../AI/agents.md)
 - [`byandell.github.io` file `AGENTS.md`](https://github.com/byandell/byandell.github.io/blob/master/AGENTS.md)
 

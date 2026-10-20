@@ -38,7 +38,7 @@ Data science approaches vary widely depending on context, discipline, background
 ### Key Concepts
 - Data sciences bridge **computational thinking**, **quantitative methods**, and **domain expertise**.
 - Focus on how communities use data to understand health, environment, and local decision-making.
-- Part of the broader effort to [Document Digital Tools](../README.md).
+- Part of the broader effort to [Document Tools](../README.md).
 
 ## Blog Perspectives: `byandell.github.io`
 

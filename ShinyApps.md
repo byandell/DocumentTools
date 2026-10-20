@@ -3,4 +3,4 @@ title: "ShinyApps Redirect"
 nav_exclude: true
 ---
 
-See [Shiny Apps in Document Digital Tools](shiny/).
+See [Shiny Apps in Document Tools](shiny/).

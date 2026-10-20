@@ -1,6 +1,6 @@
 ---
 title: "Environmental Systems"
-parent: "Document Digital Tools"
+parent: "Document Tools"
 nav_order: 4
 has_children: true
 permalink: /envsys/
