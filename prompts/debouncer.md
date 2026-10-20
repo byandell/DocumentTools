@@ -6,7 +6,7 @@ nav_order: 8
 
 # Plotly Debouncer & Iframe Embedding
 
-This case study documents the diagnosis, iterative debugging, and resolution of two intertwined technical challenges encountered when embedding complex interactive Plotly dashboards across Quarto websites ([`rainDrought`](https://github.com/byandell/rainDrought)) and Quarto Reveal.js presentation slide decks ([`Documentation`](https://github.com/byandell/Documentation)):
+This case study documents the diagnosis, iterative debugging, and resolution of two intertwined technical challenges encountered when embedding complex interactive Plotly dashboards across Quarto websites ([`rainDrought`](https://github.com/byandell/rainDrought)) and Quarto Reveal.js presentation slide decks ([`Documentation`](https://github.com/byandell/DocumentTools)):
 
 1. **The Plotly Legend Race Condition**: Single-click toggle vs. double-click isolate race conditions on faceted subplots linked with `legendgroup`.
 2. **The Quarto Reveal.js Iframe Data-URI Trap**: `embed-resources: true` converting multi-megabyte interactive HTML widgets into browser-blocked `data:text/html;base64,...` URIs.
@@ -346,4 +346,4 @@ To verify the debouncer behavior across all figures:
 
 ---
 
-_[byandell.github.io/Documentation](https://byandell.github.io/Documentation)_
+_[byandell.github.io/DocumentTools](https://byandell.github.io/DocumentTools)_

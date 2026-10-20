@@ -72,8 +72,8 @@ Here are 2 versions of the same HTML file with an explicit link.
 The latter does display as it is located in a GitHub repo rather than
 published via GitHub Pages.
 
-- [portfolio page](https://byandell.github.io/Documentation/images/tasiyagnunpa_migration.html) (renders in separate page)
-- [portfolio repo](https://github.com/byandell/Documentation/blob/main/images/tasiyagnunpa_migration.html) (does not display on page)
+- [portfolio page](https://byandell.github.io/DocumentTools/images/tasiyagnunpa_migration.html) (renders in separate page)
+- [portfolio repo](https://github.com/byandell/DocumentTools/blob/main/images/tasiyagnunpa_migration.html) (does not display on page)
 
 ## Embed a Dynamic HTML Page
 
@@ -96,5 +96,5 @@ The `title` option is useful if for some reason the page does not render.
 **Note:**
 This image will not display properly in `Preview` mode or in the GitHub repo,
 but it will display on the published page
-<https://byandell.github.io/Documentation/github/embed.html>
+<https://byandell.github.io/DocumentTools/github/embed.html>
 once the edits are committed to GitHub.

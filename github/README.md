@@ -8,7 +8,7 @@ permalink: /github/
 
 # GitHub
 
-- [View GitHub Slides](https://byandell.github.io/Documentation/quarto/github.html)
+- [View GitHub Slides](https://byandell.github.io/DocumentTools/quarto/github.html)
 - [General GitHub and Git Information](#general-github-and-git-information)
 - [Collaborate with GitHub Organizations](#collaborate-with-github-organizations)
 - [Connect with GitHub](#connect-with-github)

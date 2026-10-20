@@ -19,7 +19,7 @@ which I helped establish.
 It is now largely maintained by others.
 Much of that content has migrated to these pages.
 
-- [View R Slides](https://byandell.github.io/Documentation/quarto/R.html)
+- [View R Slides](https://byandell.github.io/DocumentTools/quarto/R.html)
 - Folders of `R` Material
   - [Overview of R Material](./learn/)
   - [Curate R Data](./curate/)
@@ -42,4 +42,4 @@ Much of that content has migrated to these pages.
 - [R in VS Code with Radian](./radian.md)
 - [Base R(4.1+) `|>` vs magrittr `%>%` pipe](https://tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/)
 
-_[byandell.github.io/Documentation](https://byandell.github.io/Documentation)_  
+_[byandell.github.io/DocumentTools](https://byandell.github.io/DocumentTools)_  

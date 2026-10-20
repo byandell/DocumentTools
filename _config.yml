@@ -1,8 +1,8 @@
 # Site settings
-title: "Documentation"
+title: "Document Tools"
 description: "Document Digital Tools"
 url: "https://byandell.github.io"
-baseurl: "/Documentation"
+baseurl: "/DocumentTools"
 
 plugins:
   - jekyll-relative-links
@@ -11,8 +11,8 @@ relative_links:
   enabled: true
   collections: true
 nav_external_links:
-  - title: Documentation Source
-    url: https://github.com/byandell/Documentation
+  - title: DocumentTools Source
+    url: https://github.com/byandell/DocumentTools
     hide_icon: false # set to true to hide the external link icon - defaults to false
     opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
 include:

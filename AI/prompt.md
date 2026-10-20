@@ -9,7 +9,7 @@ nav_order: 4
 Prompt engineering is the process of designing prompts that elicit the desired output from an AI model. It is a general approach to using AI tools, and can be applied to a wide range of tasks. So far, my focus has been on prompt engineering of code, or at least GitHub repositories.
 Below is a schema I am developing.
 
-- [View Prompt Slides](https://byandell.github.io/Documentation/quarto/prompts.html)
+- [View Prompt Slides](https://byandell.github.io/DocumentTools/quarto/prompts.html)
 - [What is Prompt Engineering?](#what-is-prompt-engineering)
 - [Prompts to Organize Workflows](#prompts-to-organize-workflows)
 - [Learning about prompts](#learning-about-prompts)

@@ -4,7 +4,7 @@ nav_order: 0
 permalink: /
 ---
 
-# [Document Digital Tools](https://byandell.github.io/Documentation)
+# [Document Digital Tools](https://byandell.github.io/DocumentTools)
 
 - [My Documentation Journey](#my-documentation-journey)
 - [R Language](./R/) ([slides](./quarto/R.html))
@@ -18,8 +18,8 @@ permalink: /
   - [Prompt Examples](./prompts/) ([slides](./quarto/prompts.html))
 - [Quarto Slides & References](./quarto/)
 
-_[byandell.github.io/Documentation](https://byandell.github.io/Documentation)_
-([GitHub](https://github.com/byandell/Documentation))
+_[byandell.github.io/DocumentTools](https://byandell.github.io/DocumentTools)_
+([GitHub](https://github.com/byandell/DocumentTools))
 
 ## My Documentation Journey
 

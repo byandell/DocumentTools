@@ -47,8 +47,8 @@ the `byandell-envsys`
 [GitHub organization](#collaborating-with-github-organizations),
 which I created to organize my environment systems research projects.
 
-- [byandell.github.io/Documentation](https://byandell.github.io/Documentation)
-([source](https://github.com/byandell/Documentation)):
+- [byandell.github.io/DocumentTools](https://byandell.github.io/DocumentTools)
+([source](https://github.com/byandell/DocumentTools)):
 Documentation of Digital Tools (whole repo)
 - [byandell.github.io/geyser](https://byandell.github.io/geyser/)
 ([source](https://github.com/byandell/geyser)):
@@ -67,7 +67,7 @@ ESIIL Research (`docs/` folder using
 ### My Documentation GitHub Pages
 
 I developed
-[Document Digital Tools](https://byandell.github.io/Documentation)
+[Document Digital Tools](https://byandell.github.io/DocumentTools)
 to serve as a reference for the Digital Tools I use.
 In the process, I learned how to use
 [Just-the-Docs](../prompts/justthedocs.md)
@@ -81,7 +81,7 @@ such as for navigation order (`nav_order`),
 requires adding a `permalink`,
 which forces Jekyll to use that page as the top-level `index` page.
 The corrected front matter, say for the top
-[README.md](https://github.com/byandell/Documentation/blob/main/README.md):
+[README.md](https://github.com/byandell/DocumentTools/blob/main/README.md):
 
 ```
 ---

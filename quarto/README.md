@@ -10,16 +10,16 @@ permalink: /quarto/
 
 ## Slides
 
-- [R Language](./R.html) ([source](https://github.com/byandell/Documentation/blob/main/quarto/R.qmd))
-- [Python Language](./python.html) ([source](https://github.com/byandell/Documentation/blob/main/quarto/python.qmd))
-- [GitHub, Connect, and CodeSpaces](./github.html) ([source](https://github.com/byandell/Documentation/blob/main/quarto/github.qmd))
-- [Environmental Systems](./envsys.html) ([source](https://github.com/byandell/Documentation/blob/main/quarto/envsys.qmd))
-- [Data Sciences](./datasci.html) ([source](https://github.com/byandell/Documentation/blob/main/quarto/datasci.qmd))
-- [Modular Shiny Applications](./ShinyApps.html) ([source](https://github.com/byandell/Documentation/blob/main/quarto/ShinyApps.qmd))
-- [AI (Artificial Intelligence)](./AI.html) ([source](https://github.com/byandell/Documentation/blob/main/quarto/AI.qmd) ⚠️)
+- [R Language](./R.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/R.qmd))
+- [Python Language](./python.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/python.qmd))
+- [GitHub, Connect, and CodeSpaces](./github.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/github.qmd))
+- [Environmental Systems](./envsys.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/envsys.qmd))
+- [Data Sciences](./datasci.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/datasci.qmd))
+- [Modular Shiny Applications](./ShinyApps.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/ShinyApps.qmd))
+- [AI (Artificial Intelligence)](./AI.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/AI.qmd) ⚠️)
   - [AI Prompt Examples](./prompts.html) ([source](https://byandell/Documentation/quarto/prompts.qmd) ⚠️)
 - [Geyser Shiny Examples](https://byandell.github.io/geyser)
-- [Quarto Narrative](./narrative.html) ([source](https://github.com/byandell/Documentation/blob/main/quarto/narrative.md))
+- [Quarto Narrative](./narrative.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/narrative.md))
 
 ## Quarto References
 

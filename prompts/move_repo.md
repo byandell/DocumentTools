@@ -1,28 +1,33 @@
 ---
-title: "Prepare to Move a GitHub Repo"
+title: "Prepare to Move or Rename a GitHub Repo"
 parent: "Prompt Examples"
 nav_order: 12
 ---
 
-# Prepare to Move a GitHub Repo
+# Prepare to Move or Rename a GitHub Repo
 
-A comprehensive guide and architectural pattern for preparing, centralizing, and executing repository transfers between GitHub users or organizations without broken links, deployment failures, or stale documentation.
-This also covers the process of changing repo name
-where the repo name is used within the repo.
+A comprehensive guide and architectural pattern for preparing, centralizing, and executing repository transfers between GitHub accounts or renaming repositories without broken links, deployment failures, or stale documentation.
 
 ---
 
-## 1. Overview & Challenges
+## 1. Overview & Scenarios
 
-Transferring a GitHub repository to a new personal account or an organization (e.g., from `byandell/MafADiscovery` to an institutional or lab account) introduces several synchronization challenges across code, documentation, and automated deployments:
+Moving a repository involves two primary scenarios—and often a combination of both:
+
+1. **Repository Renaming** (e.g., `byandell/Documentation` $\to$ `byandell/DocumentTools`): Changing the repository name while retaining the same owner account.
+2. **Ownership Transfer** (e.g., `byandell/MafADiscovery` $\to$ `lab-org/MafADiscovery`): Transferring the repository to a new personal account or organization.
+3. **Combined Move & Rename** (e.g., `byandell/Documentation` $\to$ `lab-org/DocumentTools`).
+
+### Challenges & Failure Modes
 
 | Challenge Area | Symptoms if Unprepared | Root Cause |
 | :--- | :--- | :--- |
-| **GitHub Pages Divergence** | Broken documentation or 404 errors for external visitors. | While GitHub sets up temporary HTTP redirects for repository code (`github.com/old/repo` $\to$ `github.com/new/repo`), **GitHub Pages URLs (`old.github.io/repo`) do not redirect** once pages are rebuilt or namespaces change. |
+| **GitHub Pages Divergence** | Broken documentation or 404 errors for external visitors. | While GitHub sets up temporary HTTP redirects for repository code (`github.com/old/repo` $\to$ `github.com/new/repo`), **GitHub Pages URLs (`old.github.io/old_repo`) do not redirect** once pages are rebuilt or namespaces change. |
 | **Markdown Source Link Fragility** | Links to guides fail when readers browse source files directly on GitHub. | Relative links to rendered HTML pages (e.g., `[User Guide](user_guide.html)`) produce 404 errors in GitHub's raw markdown viewer because GitHub only serves source files, not the compiled web assets. |
 | **Compiled Website Relative Pathing** | Deployed documentation links break when previewed locally or offline. | If Markdown source files use hardcoded absolute URLs (`https://old.github.io/repo/docs/...`), local preview servers and static builds cannot resolve internal pages relatively. |
+| **Project & IDE Containers** | RStudio / IDE configurations break or refer to obsolete projects. | Project descriptor files (such as `Documentation.Rproj`) fail to track the new repository naming. |
 | **Application Runtime Navigation** | Help/Guide buttons in Shiny/web apps point to obsolete URLs. | Hardcoded URLs in the application UI fail to track the new hosting namespace. |
-| **CI/CD Pipeline Lock-In** | Automated deployments fail or publish to incorrect locations. | Workflows with hardcoded organization or user names fail upon transfer. |
+| **CI/CD Pipeline Lock-In** | Automated deployments fail or publish to incorrect locations. | Workflows with hardcoded organization or repository names fail upon transfer or rename. |
 
 To solve these challenges sustainably, this pattern decouples repository identity into a **single source of truth** combined with automated link synchronization and runtime dynamic resolution.
 
@@ -30,28 +35,30 @@ To solve these challenges sustainably, this pattern decouples repository identit
 
 ## 2. Core Architecture: The Single Source of Truth
 
-Rather than scattering repository URLs and account names across dozens of files, centralize all repository identity attributes into a single configuration file at the repository root: `config.R` (or an equivalent `_config.yml` / `config.json`).
+Rather than scattering repository URLs, account names, and project identifiers across dozens of files, centralize repository identity attributes into the appropriate root configuration files:
 
 ```mermaid
 flowchart TD
-    CFG["config.R (Single Source of Truth)"] -->|Loads Config| RD["render_docs.R (Doc Pipeline)"]
-    CFG -->|Syncs Absolute Links| MD["Markdown Guides (guides/*.md, README, etc.)"]
-    CFG -->|Loads Config| APP["SHINY_APP/app.R (Web Application)"]
-    CFG -->|Bundled into Build| GHA[".github/workflows/deploy-shinylive.yaml"]
-    RD -->|Generates Clean HTML| DOCS["docs/*.html (GitHub Pages)"]
+    CFG["Configuration (Single Source of Truth)<br/>config.R / _config.yml / .Rproj"] -->|Loads Config| RD["Build Pipeline (render_docs.R / Jekyll / Quarto)"]
+    CFG -->|Syncs Links| MD["Markdown Guides (*.md, README, DEVELOPER)"]
+    CFG -->|Loads Config| APP["Application Runtime (Shiny / Web App)"]
+    CFG -->|Bundled into Build| GHA[".github/workflows/deploy.yaml"]
+    RD -->|Generates Clean Assets| DOCS["Pages Output (HTML)"]
     APP -->|Dynamic Host Resolution| BROWSER["Client Browser Session"]
 ```
 
-### Reference Implementation (`config.R`)
+### Reference Configurations
+
+#### A. R / Shiny Application Repositories (`config.R`)
 
 ```r
 # config.R
 # Central repository configuration — Single Source of Truth
-# Update `owner` when transferring the repository to a new user or organization.
+# Update `owner` or `repo` when transferring or renaming the repository.
 
 GITHUB_CONFIG <- list(
   owner  = "byandell",          # GitHub user or organization
-  repo   = "MafADiscovery",     # Repository name
+  repo   = "DocumentTools",     # Repository name
   branch = "main"               # Default production branch
 )
 
@@ -61,6 +68,25 @@ GITHUB_CONFIG$repo_url  <- sprintf("https://github.com/%s/%s", GITHUB_CONFIG$own
 GITHUB_CONFIG$docs_url  <- sprintf("%s/docs", GITHUB_CONFIG$pages_url)
 GITHUB_CONFIG$blob_url  <- sprintf("%s/blob/%s", GITHUB_CONFIG$repo_url, GITHUB_CONFIG$branch)
 ```
+
+#### B. Jekyll / Documentation Repositories (`_config.yml`)
+
+```yaml
+# _config.yml
+title: "Document Tools"
+description: "Document Digital Tools"
+url: "https://byandell.github.io"
+baseurl: "/DocumentTools"
+
+nav_external_links:
+  - title: DocumentTools Source
+    url: https://github.com/byandell/DocumentTools
+    opens_in_new_tab: true
+```
+
+#### C. RStudio Project Files
+
+When renaming an R-based repository, rename `<OldRepo>.Rproj` to `<NewRepo>.Rproj` so RStudio sessions track the new project container.
 
 ---
 
@@ -85,44 +111,59 @@ md_content <- gsub("https://[a-zA-Z0-9_-]+\\.github\\.io/[a-zA-Z0-9_-]+/docs/", 
 ```
 
 Result:
-
-* On GitHub source view: `[User Guide](https://byandell.github.io/MafADiscovery/docs/user_guide.html)` $\to$ **Clickable, live documentation**.
+* On GitHub source view: `[User Guide](https://byandell.github.io/DocumentTools/docs/user_guide.html)` $\to$ **Clickable, live documentation**.
 * On rendered web page: `<a href="user_guide.html">User Guide</a>` $\to$ **Fast, relative, portable link**.
 
 ---
 
 ## 4. Automated Markdown Link Synchronization
 
-When the owner changes in `config.R`, an automated synchronization routine scans all Markdown files and rewrites any obsolete GitHub and GitHub Pages URLs.
+When either `owner` or `repo` changes, an automated synchronization routine scans all Markdown and Quarto files and rewrites obsolete GitHub and GitHub Pages URLs.
+
+### R Implementation
 
 ```r
-#' Synchronize absolute GitHub and GitHub Pages links across repository Markdown files
-sync_markdown_links <- function(config = GITHUB_CONFIG, dry_run = FALSE) {
-  md_files <- c(
-    "README.md",
-    "DEVELOPER.md",
-    list.files("guides", pattern = "\\.md$", full.names = TRUE)
+#' Synchronize GitHub repository links across workspace documentation
+#'
+#' @param old_repo Previous repository name (e.g. "Documentation")
+#' @param new_repo New repository name (e.g. "DocumentTools")
+#' @param old_owner Previous owner (e.g. "byandell")
+#' @param new_owner New owner (default matches old_owner)
+#' @param dry_run If TRUE, preview updates without modifying files
+sync_markdown_links <- function(old_repo, new_repo,
+                                old_owner = "byandell", new_owner = old_owner,
+                                dry_run = FALSE) {
+  md_files <- list.files(
+    pattern = "\\.(md|qmd)$",
+    recursive = TRUE,
+    full.names = TRUE
   )
-  md_files <- md_files[file.exists(md_files)]
+  # Exclude build, cache, and git directories
+  md_files <- md_files[!grepl("^\\./(\\.git|site_libs|\\.quarto|_site)/", md_files)]
   
   updated_count <- 0
+  
+  old_pages <- sprintf("https://%s\\.github\\.io/%s", old_owner, old_repo)
+  new_pages <- sprintf("https://%s.github.io/%s", new_owner, new_repo)
+  
+  old_repo_url <- sprintf("https://github\\.com/%s/%s", old_owner, old_repo)
+  new_repo_url <- sprintf("https://github.com/%s/%s", new_owner, new_repo)
   
   for (f in md_files) {
     content <- readLines(f, encoding = "UTF-8", warn = FALSE)
     orig_text <- paste(content, collapse = "\n")
     new_text <- orig_text
     
-    # 1. Update GitHub Pages URLs: https://<any-owner>.github.io/<repo>
-    pages_regex <- sprintf("https://[a-zA-Z0-9_-]+\\.github\\.io/%s", config$repo)
-    new_text <- gsub(pages_regex, config$pages_url, new_text)
+    # 1. Update GitHub Pages URLs
+    new_text <- gsub(old_pages, new_pages, new_text)
     
-    # 2. Update GitHub repository URLs: https://github.com/<any-owner>/<repo>
-    repo_regex <- sprintf("https://github\\.com/[a-zA-Z0-9_-]+/%s", config$repo)
-    new_text <- gsub(repo_regex, config$repo_url, new_text)
+    # 2. Update GitHub repository URLs
+    new_text <- gsub(old_repo_url, new_repo_url, new_text)
     
-    # 3. Update Markdown repository badges/slugs: [<any-owner>/<repo>]
-    slug_regex <- sprintf("\\[[a-zA-Z0-9_-]+/%s\\]", config$repo)
-    new_text <- gsub(slug_regex, sprintf("[%s/%s]", config$owner, config$repo), new_text)
+    # 3. Update Markdown repository badges/slugs: [old_owner/old_repo]
+    old_slug <- sprintf("\\[%s/%s\\]", old_owner, old_repo)
+    new_slug <- sprintf("[%s/%s]", new_owner, new_repo)
+    new_text <- gsub(old_slug, new_slug, new_text)
     
     if (new_text != orig_text) {
       if (!dry_run) {
@@ -137,7 +178,45 @@ sync_markdown_links <- function(config = GITHUB_CONFIG, dry_run = FALSE) {
 }
 ```
 
-By hooking `sync_markdown_links()` directly into the start of `render_docs.R`, running the documentation build automatically guarantees that all Markdown source files stay synchronized with `config.R`.
+### Python Implementation
+
+A standalone Python script can be run across any repository without R dependencies:
+
+```python
+#!/usr/bin/env python3
+import os, re, sys
+
+def sync_links(old_repo, new_repo, old_owner="byandell", new_owner=None, dry_run=False):
+    if not new_owner:
+        new_owner = old_owner
+
+    patterns = [
+        (re.compile(rf"https://{old_owner}\.github\.io/{old_repo}"), f"https://{new_owner}.github.io/{new_repo}"),
+        (re.compile(rf"https://github\.com/{old_owner}/{old_repo}"), f"https://github.com/{new_owner}/{new_repo}"),
+        (re.compile(rf"\[{old_owner}/{old_repo}\]"), f"[{new_owner}/{new_repo}]"),
+        (re.compile(rf"localhost:4000/{old_repo}/"), f"localhost:4000/{new_repo}/")
+    ]
+
+    updated = 0
+    for root, dirs, files in os.walk("."):
+        if any(p in root for p in [".git", "site_libs", ".quarto", "_site"]):
+            continue
+        for f in files:
+            if f.endswith((".md", ".qmd", ".yml", ".yaml", ".R", ".py")):
+                path = os.path.join(root, f)
+                with open(path, "r", encoding="utf-8") as fh:
+                    orig = fh.read()
+                new_text = orig
+                for pattern, replacement in patterns:
+                    new_text = pattern.sub(replacement, new_text)
+                if new_text != orig:
+                    if not dry_run:
+                        with open(path, "w", encoding="utf-8") as fh:
+                            fh.write(new_text)
+                    print(f"[{'WOULD UPDATE' if dry_run else 'UPDATED'}] {path}")
+                    updated += 1
+    return updated
+```
 
 ---
 
@@ -192,11 +271,11 @@ function handleOpenApp(e) {
 
 ---
 
-## 6. Owner-Agnostic CI/CD Workflows
+## 6. Owner- & Repo-Agnostic CI/CD Workflows
 
-Ensure GitHub Actions deployment workflows contain zero hardcoded user or organization names.
+Ensure GitHub Actions deployment workflows contain zero hardcoded user or repository names.
 
-In `.github/workflows/deploy-shinylive.yaml`:
+In `.github/workflows/deploy-shinylive.yaml` or `.github/workflows/pages.yaml`:
 
 * **Use Built-in Action Variables**: Rely on default repository tokens (`secrets.GITHUB_TOKEN`) and built-in Pages outputs:
 
@@ -210,59 +289,54 @@ In `.github/workflows/deploy-shinylive.yaml`:
   cp config.R SHINY_APP/ 2>/dev/null || true
   ```
 
-* **Bypass Jekyll Processing**: Always include an empty `.nojekyll` file in the published site root to ensure files starting with underscores or custom directory structures are not ignored.
+* **Bypass Jekyll Processing**: Always include an empty `.nojekyll` file in the published site root to ensure files starting with underscores or custom directory structures are not ignored by GitHub Pages.
 
 ---
 
 ## 7. Migration Checklist: Step-by-Step Execution
 
-When transferring a repository configured with this pattern, follow these steps:
+### Scenario A: Repository Renaming (`owner/old_repo` $\to$ `owner/new_repo`)
 
-### Phase 1: Pre-Transfer Configuration (Local)
+#### Phase 1: Pre-Rename Local Configuration
+1. **Update Root Configuration**:
+   - For Jekyll sites: Update `_config.yml` (`baseurl: "/<new_repo>"`, `title`, and external links).
+   - For R/Shiny sites: Update `config.R` (`repo = "<new_repo>"`).
+2. **Rename Project Container**:
+   - Rename `<old_repo>.Rproj` to `<new_repo>.Rproj`.
+3. **Synchronize Documentation Links**:
+   - Run `sync_markdown_links()` or python sync utility across the repository.
+   - Update governance files (`AGENTS.md`, `DEVELOPER.md`, `README.md`).
+4. **Recompile Documentation & Verify**:
+   - Recompile slides or site assets (`quarto render`).
+   - Run link health checks (`python3 scripts/check_links.py`).
+5. **Commit & Push Prepared Changes**:
+   - Push all updated files to the current remote repository on GitHub before renaming.
 
-1. **Update `config.R`**:
-   Change `owner` to the destination GitHub username or organization name:
+#### Phase 2: Execute GitHub Rename (Web UI)
+1. On GitHub, navigate to **Settings** $\to$ **General**.
+2. Under **Repository name**, enter the new repository name and click **Rename**.
+3. GitHub automatically updates GitHub Pages publishing to `https://<owner>.github.io/<new_repo>/`.
 
-   ```r
-   GITHUB_CONFIG <- list(
-     owner  = "new-destination-owner",
-     repo   = "MafADiscovery",
-     branch = "main"
-   )
-   ```
-
-2. **Recompile Documentation & Synchronize Links**:
-   Execute the build script:
-
+#### Phase 3: Post-Rename Local Alignment
+1. **Update Local Git Remote**:
    ```bash
-   Rscript render_docs.R
+   git remote set-url origin https://github.com/<owner>/<new_repo>.git
+   git remote -v
    ```
-
-   * Automatically updates absolute links across all Markdown documents in `guides/`, `README.md`, and `DEVELOPER.md`.
-   * Recompiles `docs/*.html` with the updated repository URLs and navigation header links.
-3. **Commit & Push Changes**:
-   Stage and push the updated configuration, synchronized Markdown files, and recompiled HTML:
-
+2. **(Optional) Rename Local Clone Directory**:
    ```bash
-   git add config.R render_docs.R guides/ docs/ README.md DEVELOPER.md
-   git commit -m "Configure repository ownership for transfer to new-destination-owner"
-   git push origin main
+   cd ..
+   mv <old_repo> <new_repo>
+   cd <new_repo>
    ```
 
-### Phase 2: Execute GitHub Transfer (Web UI)
+---
 
-1. In the GitHub repository, navigate to **Settings** $\to$ **General**.
-2. Scroll to the **Danger Zone** at the bottom and click **Transfer ownership**.
-3. Enter the new owner or organization account name and confirm the transfer.
+### Scenario B: Ownership Transfer (`old_owner/repo` $\to$ `new_owner/repo`)
 
-### Phase 3: Post-Transfer Verification (Web UI & CI)
-
-1. **GitHub Pages Settings**:
-   Navigate to the transferred repository's **Settings** $\to$ **Pages** and verify that:
-   * **Source** is set to **GitHub Actions**.
-2. **Run Deployment Workflow**:
-   Under the **Actions** tab, trigger the deployment workflow (or push a new commit) to publish the live application and documentation portal under the new domain (`https://new-destination-owner.github.io/MafADiscovery/`).
-3. **Verify Links**:
-   * Visit the live deployed application and click `📖 Guide ↗`.
-   * On the documentation page, click `🚀 Open App` to confirm smooth tab refocusing.
-   * Open `developer_guide.md` or `README.md` on GitHub to confirm source links point to the active organization.
+1. **Pre-Transfer Configuration**: Update `config.R` (`owner = "new-owner"`) and run `sync_markdown_links()`. Commit and push to `origin/main`.
+2. **GitHub Transfer (Web UI)**: Navigate to **Settings** $\to$ **General** $\to$ **Danger Zone** $\to$ **Transfer ownership**. Confirm the transfer.
+3. **Post-Transfer Verification**:
+   - Verify GitHub Pages settings (**Settings** $\to$ **Pages**).
+   - Trigger deployment workflow under **Actions** tab.
+   - Update local git remote: `git remote set-url origin https://github.com/<new_owner>/<repo>.git`.

@@ -25,7 +25,7 @@ Type the following prompt into AI, substituting for `[basename].R` and `[workflo
 
 **Prompt**:
 "follow the
-[workflow prompt](https://github.com/byandell/Documentation/blob/main/prompts/workflow.md) to refactor `[basename].R` into a modular R package structure
+[workflow prompt](https://github.com/byandell/DocumentTools/blob/main/prompts/workflow.md) to refactor `[basename].R` into a modular R package structure
 for the analysis `[workflow]`".
 
 ---

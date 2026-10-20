@@ -5,7 +5,7 @@ parent: "Prompt Examples"
 
 # AGENTS.md (Mini)
 
-Personal documentation site for Brian Yandell (`byandell`): [byandell.github.io/Documentation](https://byandell.github.io/Documentation) ([GitHub](https://github.com/byandell/Documentation)).
+Personal documentation site for Brian Yandell (`byandell`): [byandell.github.io/DocumentTools](https://byandell.github.io/DocumentTools) ([GitHub](https://github.com/byandell/DocumentTools)).
 
 ## Structure
 

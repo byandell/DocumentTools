@@ -298,7 +298,7 @@ alongside background AI terminal execution.
 - **[Qwen3 Tech Report](https://arxiv.org/abs/2505.09388)** (arXiv)
 - **[MiniMax M2](https://openrouter.ai/models/minimax/minimax-m2)** (OpenRouter)
 - **[gpt-oss-120b](https://openrouter.ai/models/gpt-oss-120b)** (OpenRouter)
-- **[Verde Model Spec Catalog](https://github.com/byandell/Documentation/blob/main/verde_models.csv)**
+- **[Verde Model Spec Catalog](https://github.com/byandell/DocumentTools/blob/main/verde_models.csv)**
 :::
 :::
 

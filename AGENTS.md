@@ -1,12 +1,12 @@
 ---
-title: "AGENTS.md — Documentation Repository"
+title: "AGENTS.md — DocumentTools Repository"
 parent: "Prompt Examples"
 ---
 
-# AGENTS.md — Documentation Repository
+# AGENTS.md — DocumentTools Repository
 
 ## Context
-- **Repository**: Personal documentation site published at [byandell.github.io/Documentation](https://byandell.github.io/Documentation).
+- **Repository**: Personal documentation site published at [byandell.github.io/DocumentTools](https://byandell.github.io/DocumentTools).
 - **Core Directories**: `R/`, `python/`, `github/`, `envsys/`, `AI/`, `prompts/`, `quarto/`, `datasci/`, `images/`.
 - **Key Files**: `README.md` (site index, sync with `_quarto.yml`), `AI_prompts.md` (prompt catalog), `_config.yml` (Just-the-Docs theme).
 

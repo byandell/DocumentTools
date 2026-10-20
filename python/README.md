@@ -16,7 +16,7 @@ See related in
 [Environmental Systems](../envsys/).
 Please offer suggestions to improve.
 
-- [View Python Slides](https://byandell.github.io/Documentation/quarto/python.html)
+- [View Python Slides](https://byandell.github.io/DocumentTools/quarto/python.html)
 - [Python Overview](#python-overview)
 - [Earth Data Analytics (EDA) Workbook](#earth-data-analytics-eda-workbook)
   - [Coordinate Systems & Projections](#coordinate-systems--projections)
@@ -36,7 +36,7 @@ Please offer suggestions to improve.
   - [Interactive and Dynamic Plots](interactive.md)
   - [Python Default Kernel for Quarto](kernel.md)
 
-_[byandell.github.io/Documentation](https://byandell.github.io/Documentation)_  
+_[byandell.github.io/DocumentTools](https://byandell.github.io/DocumentTools)_  
 
 ## Python Overview
 

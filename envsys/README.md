@@ -16,7 +16,7 @@ To help me understand and organize code and ideas, I developed the
 See also
 [Python Strategy](..python/strategy.md).
 
-- [View Environmental Systems Slides](https://byandell.github.io/Documentation/quarto/envsys.html)
+- [View Environmental Systems Slides](https://byandell.github.io/DocumentTools/quarto/envsys.html)
 - [Earth Data Analytics](#earth-data-analytics)
 - [Open Street Map](#open-street-map)
 - [Geospatial References](./geospatial.md)

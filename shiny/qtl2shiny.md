@@ -70,5 +70,5 @@ Detailed technical documentation for the package data structures, query function
 
 ## Related References
 
-- [Developer Process Documentation](https://byandell.github.io/Documentation/prompts/devel_guide.html)
+- [Developer Process Documentation](https://byandell.github.io/DocumentTools/prompts/devel_guide.html)
 - [qtl2shiny Package Repository](https://github.com/byandell-sysgen/qtl2shiny)

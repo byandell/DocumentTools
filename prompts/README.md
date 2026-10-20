@@ -13,7 +13,7 @@ Here are some examples of prompts that I have used with AI agents to help me,
 and teams in interacting with projects.
 They illustrate a few principles along the way.
 
-- [View Prompt Slides](https://byandell.github.io/Documentation/quarto/prompts.html)
+- [View Prompt Slides](https://byandell.github.io/DocumentTools/quarto/prompts.html)
 - [Prompt Engineering](../AI/prompt.md)
 - [Saving Prompts and Walkthroughs](#saving-prompts-and-walkthroughs)
   - [Sharing Prompts instead of Code](https://byandell.github.io/Gravity-and-Antigravity/#sharing-prompts-instead-of-code)
@@ -182,7 +182,7 @@ with a project-level `AGENTS.md` organized via the
 
 **Examples:**
 
-- [Document Digital Tools `AGENTS.md`](https://github.com/byandell/Documentation/blob/main/AGENTS.md)
+- [Document Digital Tools `AGENTS.md`](https://github.com/byandell/DocumentTools/blob/main/AGENTS.md)
 - [Agents and Workspace Rules Guide](../AI/agents.md)
 - [`byandell.github.io` file `AGENTS.md`](https://github.com/byandell/byandell.github.io/blob/master/AGENTS.md)
 
@@ -238,7 +238,7 @@ For more detail, see
 The saved file includes Alan and Diana's versions of the prompt . For details on how the prompt evolved, click on `Blame` (top left) or `History` (top right).
 The displayed version is the most recent (Diana's);
 the same file contains
-[Alan's earlier version](https://github.com/byandell/Documentation/commit/6bf9b23a9a2441bd8c60cd18d88bcbc4a00c6ae7#diff-0a4691c74dedbcb4de422d849e3ff48d756dfcc06d20f0253ef5315dbaf9d912).
+[Alan's earlier version](https://github.com/byandell/DocumentTools/commit/6bf9b23a9a2441bd8c60cd18d88bcbc4a00c6ae7#diff-0a4691c74dedbcb4de422d849e3ff48d756dfcc06d20f0253ef5315dbaf9d912).
 
 Another user could create a prompt that cites this prompt file and directs AI to
 substitute different data and code files.

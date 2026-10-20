@@ -43,4 +43,4 @@ Here is a summary of the files created and configured:
   - *Organizing a Workflow*: Transforming R workflows into functions in packages.
   - *Folder Documentation in ResearchDrive*: Balancing private RD directories with public GitHub documentation.
 
-_[byandell.github.io/Documentation](https://byandell.github.io/Documentation)_
+_[byandell.github.io/DocumentTools](https://byandell.github.io/DocumentTools)_

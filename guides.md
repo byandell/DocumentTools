@@ -16,7 +16,7 @@ In addition, `README.md`, `DEVELOPER.md` and `AGENTS.md` files are handy for ove
 - [Digital Tool Guides & Prompts](#digital-tool-guides--prompts)
   - [Prompts](#prompts)
   - [Guides and Overviews](#guides-and-overviews)
-- [Documentation Repo Developer Guide](#documentation-repo-developer-guide)
+- [DocumentTools Repo Developer Guide](#documenttools-repo-developer-guide)
   - [Site Layout & Directory Map](#site-layout--directory-map)
   - [Page Metadata & Frontmatter Standards](#page-metadata--frontmatter-standards)
   - [Automation & Link Checking](#automation--link-checking)
@@ -40,7 +40,7 @@ In addition, `README.md`, `DEVELOPER.md` and `AGENTS.md` files are handy for ove
 
 | Project / Repository | Architecture (`DEVELOPER.md`) | Developer & User Guides | AI Agent Rules (`AGENTS.md`) |
 | :--- | :--- | :--- | :--- |
-| **[Documentation](https://byandell.github.io/Documentation)** (`this repo`) | [`DEVELOPER.md`](DEVELOPER.md) | [Developer Guide](#documentation-repo-developer-guide) | [`AGENTS.md`](AGENTS.md) |
+| **[DocumentTools](https://byandell.github.io/DocumentTools)** (`this repo`) | [`DEVELOPER.md`](DEVELOPER.md) | [Developer Guide](#documenttools-repo-developer-guide) | [`AGENTS.md`](AGENTS.md) |
 | **[`qtl2shiny`](https://byandell-sysgen.github.io/qtl2shiny/)** | [`DEVELOPER.md`](https://github.com/byandell-sysgen/qtl2shiny/blob/main/DEVELOPER.md) | [Developer Guide](https://byandell-sysgen.github.io/qtl2shiny/articles/devel_guide/index.html) ([Articles](https://byandell-sysgen.github.io/qtl2shiny/articles/)) | [`AGENTS.md`](https://github.com/byandell-sysgen/qtl2shiny/blob/main/AGENTS.md) |
 | **[`geyser`](https://byandell.github.io/geyser/)** | [DEVELOPER.md](https://byandell.github.io/geyser/DEVELOPER.html) | [R Developer Guide](https://byandell.github.io/geyser/vignettes/DeveloperGuide.html)<br/>[Python Developer Guide](https://byandell.github.io/geyser/docs/devel/python.html) | [`AGENTS.md`](https://github.com/byandell/geyser/blob/main/AGENTS.md) |
 | **[`landmapyr`](https://byandell-envsys.github.io/landmapyr/)** | [`DEVELOPER.md`](https://github.com/byandell-envsys/landmapyr/blob/main/DEVELOPER.md) | — | [`AGENTS.md`](https://github.com/byandell-envsys/landmapyr/blob/main/AGENTS.md) |
@@ -49,16 +49,16 @@ In addition, `README.md`, `DEVELOPER.md` and `AGENTS.md` files are handy for ove
 
 ---
 
-## Documentation Repo Developer Guide
+## DocumentTools Repo Developer Guide
 
-This section serves as the developer guide for managing, editing, and checking the integrity of this `Documentation` repository.
+This section serves as the developer guide for managing, editing, and checking the integrity of this `DocumentTools` repository.
 
 ### Site Layout & Directory Map
 
 The repository is built as a Jekyll static site using the `just-the-docs` theme, compiled automatically on GitHub Pages. Quarto is used to build slides.
 
 ```text
-Documentation/
+DocumentTools/
 ├── _config.yml                     # Jekyll configuration (remote theme, plugins)
 ├── _quarto.yml                     # Quarto website output options
 ├── README.md                       # Main site landing page (index)

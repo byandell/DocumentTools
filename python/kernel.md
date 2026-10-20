@@ -59,4 +59,4 @@ conda activate earth-analytics-python
 quarto render your_document.qmd
 ```
 
-_[byandell.github.io/Documentation](https://byandell.github.io/Documentation)_  
+_[byandell.github.io/DocumentTools](https://byandell.github.io/DocumentTools)_  

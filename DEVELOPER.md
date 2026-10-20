@@ -6,7 +6,7 @@ nav_order: 1
 
 # Developer Architecture & Maintenance Guide
 
-This document serves as the developer-facing architecture and maintenance reference for Brian Yandell's (`byandell`) personal documentation repository, published at [byandell.github.io/Documentation](https://byandell.github.io/Documentation) and versioned on [GitHub](https://github.com/byandell/Documentation).
+This document serves as the developer-facing architecture and maintenance reference for Brian Yandell's (`byandell`) personal documentation repository, published at [byandell.github.io/DocumentTools](https://byandell.github.io/DocumentTools) and versioned on [GitHub](https://github.com/byandell/DocumentTools).
 
 For system-level rules and AI pair-programming instructions, see [`AGENTS.md`](AGENTS.md). For high-level repository index and landing pages, see [`README.md`](README.md).
 
@@ -29,7 +29,7 @@ flowchart TD
     end
 
     subgraph Output["Publishing Pipeline"]
-        E["GitHub Pages Output<br/>(byandell.github.io/Documentation)"]
+        E["GitHub Pages Output<br/>(byandell.github.io/DocumentTools)"]
     end
 
     A --> C
@@ -128,14 +128,14 @@ To preview the full `just-the-docs` Jekyll site locally:
 bundle exec jekyll serve
 ```
 
-Access the preview locally at `http://localhost:4000/Documentation/`.
+Access the preview locally at `http://localhost:4000/DocumentTools/`.
 
 ### 5. Interactive Figures & Iframe Embedding in Standalone Slides
 
 When embedding multi-megabyte interactive HTML figures (e.g. Plotly dashboards) into standalone Quarto Reveal.js slide decks (`embed-resources: true`):
 
 - **Avoid Local File Iframes**: Referencing `<iframe src="images/widget.html">` causes Pandoc to convert the HTML widget into an inline `data:text/html;base64,...` URI, which modern web browsers block due to length limits and sandboxing policies.
-- **Use Hosted GitHub Pages URLs**: Use the absolute GitHub Pages URL in the iframe `src` (e.g. `https://byandell.github.io/Documentation/quarto/images/trajectories.html`) while keeping `resources: ["images/trajectories.html"]` in frontmatter.
+- **Use Hosted GitHub Pages URLs**: Use the absolute GitHub Pages URL in the iframe `src` (e.g. `https://byandell.github.io/DocumentTools/quarto/images/trajectories.html`) while keeping `resources: ["images/trajectories.html"]` in frontmatter.
 - **Plotly Legend Debouncing**: For multi-trace faceted subplots sharing `legendgroup`, see the cross-repo case study in [`prompts/debouncer.md`](prompts/debouncer.md).
 
 ---
@@ -158,7 +158,7 @@ permalink: /category/page/     # Optional: explicit URI path override
 ### Relative Path Hygiene
 
 - **Always use relative paths** for internal document links. Prefer relative markdown links (e.g. `[R Notes](R/README.md)` or `[Developer Blueprint](prompts/devel_guide.md)`) over hardcoded full URLs.
-- Relative links ensure seamless navigation both on local preview environments (`http://localhost:4000/Documentation/`) and published GitHub Pages (`byandell.github.io/Documentation`).
+- Relative links ensure seamless navigation both on local preview environments (`http://localhost:4000/DocumentTools/`) and published GitHub Pages (`byandell.github.io/DocumentTools`).
 - Verify relative link targets using [`scripts/check_links.py`](scripts/check_links.py).
 
 ### Version Control & File History Conventions

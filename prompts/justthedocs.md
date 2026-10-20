@@ -29,10 +29,10 @@ directly on GitHub Pages without installing local gems, configure `_config.yml` 
 
 ```yaml
 # Site branding and URLs
-title: "Documentation"
+title: "Document Tools"
 description: "Documentation for Digital Tools"
 url: "https://byandell.github.io"
-baseurl: "/Documentation"
+baseurl: "/DocumentTools"
 
 # Theme setup
 remote_theme: just-the-docs/just-the-docs

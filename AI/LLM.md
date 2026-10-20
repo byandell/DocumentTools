@@ -10,7 +10,7 @@ nav_order: 2
 - [What are AI tokens and embeddings?](#what-are-ai-tokens-and-embeddings)
 - [What is a Mixture of Experts (MoE)?](#what-is-a-mixture-of-experts-moe)
 - [Open Source LLMs](#open-source-llms)
-  - [verde_models.csv](https://github.com/byandell/Documentation/blob/main/verde_models.csv) (Verde Model Spec Catalog)
+  - [verde_models.csv](https://github.com/byandell/DocumentTools/blob/main/verde_models.csv) (Verde Model Spec Catalog)
 - [Team Science Platforms](team.md)
   - [Geospatial Harmonization with LLMs (CU-ESIIL)](https://cu-esiil.github.io/LLM_lesson_exemplar/)
 
@@ -80,7 +80,7 @@ The model can be further trained on specific tasks to improve its performance in
 ## Open Source LLMs
 
 The file
-[verde_models.csv](https://github.com/byandell/Documentation/blob/main/verde_models.csv)
+[verde_models.csv](https://github.com/byandell/DocumentTools/blob/main/verde_models.csv)
 has open-source LLMs
  currently available (10 June 2026) via
 [AI Verde](https://chat.cyverse.ai/),

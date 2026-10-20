@@ -38,7 +38,7 @@ Yandell's key working repos that inform this document are
 
 ## Shiny App Overviews
 
-- [View Shiny Apps Slides](https://byandell.github.io/Documentation/quarto/ShinyApps.html)
+- [View Shiny Apps Slides](https://byandell.github.io/DocumentTools/quarto/ShinyApps.html)
 - [geyser: modular concepts and construction](geyser.md)
 - [foundrShiny: pragmatic code reuse driven by collaborators](foundrShiny.md)
 - [qtl2shiny: localized QTL analysis and visualization](qtl2shiny.md)
