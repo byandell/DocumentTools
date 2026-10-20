@@ -293,7 +293,84 @@ In `.github/workflows/deploy-shinylive.yaml` or `.github/workflows/pages.yaml`:
 
 ---
 
-## 7. Migration Checklist: Step-by-Step Execution
+## 7. Preserving Legacy URLs: The Redirect Stub Repository Pattern
+
+While GitHub automatically issues HTTP 301 redirects for git operations and web code views (`github.com/owner/old_repo` $\to$ `github.com/owner/new_repo`), **GitHub Pages does not forward traffic from obsolete URLs**. As soon as the repository is renamed, visiting `https://<owner>.github.io/<old_repo>/` immediately throws an HTTP 404 error, breaking external bookmarks, paper citations, and search engine index links.
+
+To solve this sustainably, deploy a lightweight **Redirect Stub Repository** at the old repository name.
+
+```mermaid
+flowchart LR
+    A["Visitor / External Bookmark<br/>(owner.github.io/old_repo/page.html)"] -->|404 Handler| B["Stub Repo: old_repo<br/>(404.html)"]
+    C["Visitor / Root URL<br/>(owner.github.io/old_repo/)"] -->|Meta Refresh| D["Stub Repo: old_repo<br/>(index.html)"]
+    B -->|Path-Preserving Redirect| E["Active Pages Site<br/>(owner.github.io/new_repo/page.html)"]
+    D -->|Root Redirect| F["Active Pages Site<br/>(owner.github.io/new_repo/)"]
+```
+
+### Reference Implementation
+
+In a new public repository named after the old repository (`<old_repo>`), place two HTML files in the root:
+
+#### 1. Root Forwarder (`index.html`)
+
+Redirects direct visitors to the new repository landing page:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting to new site...</title>
+  <meta http-equiv="refresh" content="0; url=https://byandell.github.io/DocumentTools/">
+  <link rel="canonical" href="https://byandell.github.io/DocumentTools/">
+  <script>
+    window.location.replace("https://byandell.github.io/DocumentTools/" + window.location.search + window.location.hash);
+  </script>
+</head>
+<body>
+  <p>This documentation has moved to <a href="https://byandell.github.io/DocumentTools/">DocumentTools</a>.</p>
+</body>
+</html>
+```
+
+#### 2. Deep-Link Forwarder (`404.html`)
+
+GitHub Pages serves `404.html` for any unrecognized sub-path. This script captures the requested sub-path, strips the obsolete repository prefix, and transparently routes the reader to the exact corresponding article, presentation, or asset on the new site:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting to new site...</title>
+  <script>
+    const newBase = "https://byandell.github.io/DocumentTools";
+    const oldBase = "/Documentation";
+    let path = window.location.pathname;
+    if (path.startsWith(oldBase)) {
+      path = path.slice(oldBase.length);
+    }
+    window.location.replace(newBase + path + window.location.search + window.location.hash);
+  </script>
+</head>
+<body>
+  <p>Redirecting to <a href="https://byandell.github.io/DocumentTools/">DocumentTools</a>...</p>
+</body>
+</html>
+```
+
+#### 3. Activation
+
+Under the stub repository's **Settings** $\to$ **Pages**:
+- **Source**: Select **Deploy from a branch**.
+- **Branch**: Select `main` (or `master`) and `/ (root)`.
+- Click **Save**.
+
+The redirect becomes active globally within 1–2 minutes.
+
+---
+
+## 8. Migration Checklist: Step-by-Step Execution
 
 ### Scenario A: Repository Renaming (`owner/old_repo` $\to$ `owner/new_repo`)
 
@@ -329,6 +406,12 @@ In `.github/workflows/deploy-shinylive.yaml` or `.github/workflows/pages.yaml`:
    mv <old_repo> <new_repo>
    cd <new_repo>
    ```
+
+#### Phase 4: Deploy Legacy Redirect Stub Repository (Prevent 404s)
+1. Create a new public repository on GitHub named `<old_repo>`.
+2. Commit `index.html` and `404.html` as detailed in [Section 7](#7-preserving-legacy-urls-the-redirect-stub-repository-pattern).
+3. Enable GitHub Pages on the stub repository (**Settings** $\to$ **Pages** $\to$ Deploy from branch `main` / `root`).
+4. Verify by visiting `https://<owner>.github.io/<old_repo>/` to confirm instant redirection to `https://<owner>.github.io/<new_repo>/`.
 
 ---
 
