@@ -13,28 +13,84 @@ This guide gathers prompts and workflows for automatically generating presentati
 
 ## 1. Web-Based Reveal.js Presentations with Quarto
 
-This workflow transforms existing markdown notes into a styled, interactive Reveal.js presentation with a modern aesthetic and custom typography.
+This workflow transforms existing documentation, PDF publications, or markdown notes into a styled, interactive Reveal.js presentation with a modern aesthetic, calibrated typography, and self-contained asset embedding.
 
-### Prompt and Response
+### Prompts and Refinements
 
-**Prompt:**
-> "Create a quarto slide deck from `[slidedeck].md` in light mode and place it in folder `quarto/` as `[slidedeck].qmd`. Adjust slide styling to use a more compact layout so that content fits neatly on each slide. Do not use `chalkboard` features, instead embed all resources. Update `.gitignore` for quarto documents as needed."
+**Initial Generation Prompt:**
+> "Create a quarto slide deck from `[slidedeck].md` (or article PDF in `data/`) in light mode and place it in folder `quarto/` as `[slidedeck].qmd`. Start by developing a staged outline based on the main sections. Adjust slide styling to use a compact layout so that content fits neatly on each slide. Do not use chalkboard features; instead embed all resources (`embed-resources: true`). Calibrate inline backtick code elements so their font size matches the visual height of surrounding text. Update `.gitignore` for quarto documents as needed."
 
-**Key Configurations & Structure:**
+**Production-Grade Refinement Directives:**
+- **Typography & Back-Quoted Strings**: Calibrate inline monospace elements (`code:not(pre code)`) to `0.88em` with baseline alignment and inherited line height across paragraphs, list items, tables, and spans to match adjacent sans-serif font size without distorting vertical rhythm.
+- **Figure Asset Sourcing**: Link directly to official CDN or publication URLs for high-resolution figures when available; Quarto dynamically base64-encodes them into the self-contained deck, avoiding large local binary files in version control.
+- **Layout Architecture & Collision Prevention**: For complex conceptual overviews or multi-part hypotheses, use responsive 2×2 callout grids (`::: {.columns}`) or statistical cards (`.stat-card`) rather than tall SVG/Mermaid flowcharts to prevent browser clipping and hidden slide rendering collisions.
+- **Slide Navigation & Overview**: Configure 16:9 widescreen slides with progress bars, slide numbers, and matrix overview mode (`O` key).
 
-1. **Quarto Slide Deck (`[slidedeck].qmd`)**:
-   - Converted to the modern web-based **Reveal.js** format.
+### Key Configurations & Structure
+
+1. **Quarto Slide Deck (`quarto/[slidedeck].qmd`)**:
+   - Web-based **Reveal.js** format with self-contained bundling:
+     ```yaml
+     format:
+       revealjs:
+         theme: [default, custom.scss]
+         slide-number: true
+         embed-resources: true
+         width: 1600
+         height: 900
+         transition: fade
+     ```
    - Structured into logical sections using background-colored slide breaks (`# Section Title {background-color="..."}`).
    - Utilizes advanced Quarto features such as column layouts (`::: {.columns}`), callout boxes, and incremental lists (`::: {.incremental}`).
+   - Uses responsive 2×2 card or callout grids for multi-part hypotheses or methods to prevent SVG rendering collisions.
    - Adjusts all relative file links to match the subdirectory structure.
 
 2. **Custom Presentation Styling ([quarto/custom.scss](../quarto/custom.scss))**:
-   - Designed a premium dark-mode aesthetic using Slate and Sky/Rose accents.
-   - Customized typography using modern sans-serif fonts (`Outfit`, `Inter`).
-   - Added glowing shadows and rounded borders to code blocks, and styled Quarto callouts to pop against dark backgrounds.
+   - **Light-Mode Scientific Aesthetic**: Clean Slate-50 background (`#f8fafc`), Slate-900 headings (`#0f172a`), Sky-600 links/accents (`#0284c7`), and subtle slate borders (`#e2e8f0`).
+   - **Modern Font Pairing**: Google Fonts pairing with `Outfit` for presentation and slide headings, and `Inter` for body copy, tables, and statistics.
+   - **Back-Quoted String Calibration (Inline Code)**: Monospace fonts inherently have taller x-heights and cap-heights than proportional sans-serif fonts. Calibrate inline backtick code elements to match surrounding text:
+     ```scss
+     // Inline code styling (backticks) - calibrated to match adjacent text size
+     code:not(pre code) {
+       font-family: var(--r-code-font, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace);
+       font-size: 0.88em !important;
+       background-color: #f1f5f9;
+       padding: 0.06em 0.28em;
+       border-radius: 4px;
+       color: #0369a1;
+       border: 1px solid #e2e8f0;
+       vertical-align: baseline;
+       line-height: inherit;
+       font-weight: 500;
+     }
 
-3. **Rendered Output**:
-   - Compiled using `quarto render quarto/[slidedeck].qmd` to ensure syntax validity.
+     li code:not(pre code),
+     p code:not(pre code),
+     td code:not(pre code),
+     th code:not(pre code),
+     span code:not(pre code) {
+       font-size: 0.88em !important;
+     }
+     ```
+   - **Card & Compact Slide Utilities**: Includes `.stat-card` for KPI/metric highlights and `.compact-slide` class for high-density slides.
+
+3. **Rendered Output, Verification & PDF Export**:
+   - **Compile HTML**: Compile using `quarto render quarto/[slidedeck].qmd` (verifying exit code `0` and clean asset embedding).
+   - **Presentation Navigation**:
+     - `F`: Toggle full screen
+     - `O`: Toggle slide overview matrix
+     - `Space` / `Arrow Keys`: Advance slides
+   - **Export to PDF (Headless Chrome — 11" × 8.5" Landscape)**:
+     ```bash
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+       --headless \
+       --run-all-compositor-stages-before-draw \
+       --no-pdf-header-footer \
+       --print-to-pdf="quarto/[slidedeck].pdf" \
+       "file://$(pwd)/quarto/[slidedeck].html?print-pdf"
+     ```
+   - **Export to PDF (Browser Print Dialog)**:
+     Open `quarto/[slidedeck].html?print-pdf` in Chrome/Safari/Edge, press `Cmd + P`, select *Save as PDF*, Layout: *Landscape*, Margins: *None*, and check *Background graphics*.
 
 ---
 

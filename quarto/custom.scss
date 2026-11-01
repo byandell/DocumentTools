@@ -140,14 +140,58 @@ $presentation-subtitle-font-size: 1.4em;
     font-style: italic;
   }
 
-  // Inline code styling
+  // Inline code styling (backticks) - calibrated to match adjacent text size
   code:not(pre code) {
-    font-family: var(--r-code-font, monospace);
-    font-size: 0.85em;
+    font-family: var(--r-code-font, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace);
+    font-size: 0.88em !important;
     background-color: #f1f5f9;
-    padding: 0.1em 0.3em;
+    padding: 0.06em 0.28em;
     border-radius: 4px;
-    color: #b91c1c;
+    color: #0369a1;
+    border: 1px solid #e2e8f0;
+    vertical-align: baseline;
+    line-height: inherit;
+    font-weight: 500;
+  }
+
+  li code:not(pre code),
+  p code:not(pre code),
+  td code:not(pre code),
+  th code:not(pre code),
+  span code:not(pre code) {
+    font-size: 0.88em !important;
+  }
+
+  // Custom statistical cards
+  .stat-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.6em 0.8em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    margin-bottom: 0.5em;
+
+    .stat-number {
+      font-size: 1.4em;
+      font-weight: 800;
+      color: #0284c7;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.72em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-top: 0.15em;
+    }
+
+    .stat-desc {
+      font-size: 0.7em;
+      color: #475569;
+      margin-top: 0.25em;
+    }
   }
 
   // Compact slide class to reduce overall size of content for slides with high density
