@@ -1,8 +1,10 @@
 ---
-title: "Editor Controls"
+title: "Modify Editor AI Behavior"
 parent: "AI (Artificial Intelligence)"
 nav_order: 8
 ---
+
+# Modify Editor AI Behavior
 
 ## Prompts
 

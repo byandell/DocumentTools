@@ -10,7 +10,7 @@ nav_order: 5
 - [Context Engineering References](#context-engineering-references)
 - Additional Pages
   - [Agents and Workspace Rules](agents.md)
-  - [Skills](skills.md)
+  - [Create and Use AI Skills](skills.md)
 
 ## What is Context Engineering?
 

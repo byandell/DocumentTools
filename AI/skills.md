@@ -1,8 +1,25 @@
 ---
-title: "Skills"
+title: "Create and Use AI Skills"
 parent: "AI (Artificial Intelligence)"
 nav_order: 7
 ---
+
+# Create and Use AI Skills
+
+A skill is an ability and/or set of knowledge.
+AI agents can create or use skills to complete tasks.
+Here are example prompts to create an AI skill
+and determine where its files are stored.
+
+**Prompts:**
+
+- Create a skill as described in project rationale.
+- Where do I find the products for this skill?
+
+An example skill and process to create it is in
+[Heureka/Projects/Skill4AttieData](https://github.com/AttieLab-Systems-Genetics/Heureka/tree/main/Projects/Skill4AttieData).
+
+## Resources
 
 - [Understanding Skills, Tools, and Apps](#understanding-skills-tools-and-apps)
 - [Comparison of Agent Skills and AGENTS.md](#comparison-of-agent-skills-and-agentsmd)
@@ -15,7 +32,6 @@ nav_order: 7
   - [lab-bench — Heureka Skills (harness info?)](https://heurekaskills.com/lab-bench/)
   - [Skills vs. Tools](https://thisvsthat.io/skills-vs-tools)
   - [Skill vs. Tool, MCP vs. API](https://taoproductleader.substack.com/p/skill-vs-tool-vs-mcp-vs-api)
-  - [Example skill for Attie Lab Data](https://github.com/AttieLab-Systems-Genetics/Heureka/tree/main/Projects/Skill4AttieData)
 
 ## Understanding Skills, Tools, and Apps
 

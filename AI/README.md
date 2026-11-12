@@ -23,9 +23,9 @@ To learn about (generative) AI, start with the self-paced workshop on
   - [Team Science Platforms](team.md)
   - [Prompt Engineering](prompt.md)
   - [Context Engineering](context.md)
-  - [Agents and Workspace Rules](agents.md)
-  - [Skills](skills.md)
-  - [Editor Controls](editor.md)
+    - [Agents and Workspace Rules](agents.md)
+    - [Create and Use AI Skills](skills.md)
+  - [Modify Editor AI Behavior](editor.md)
 
 ## Articles about AI
 
