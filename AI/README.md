@@ -24,6 +24,8 @@ To learn about (generative) AI, start with the self-paced workshop on
   - [Prompt Engineering](prompt.md)
   - [Context Engineering](context.md)
   - [Agents and Workspace Rules](agents.md)
+  - [Skills](skills.md)
+  - [Editor Controls](editor.md)
 
 ## Articles about AI
 
