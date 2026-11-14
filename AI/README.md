@@ -19,6 +19,7 @@ To learn about (generative) AI, start with the self-paced workshop on
   - [AI and Scientific Community](#ai-and-scientific-community)
 - Additional Pages
   - [AI Environments](env.md)
+    - [What is an AI Harness?](harness.md)
   - [Large Language Models (LLMs)](LLM.md)
   - [Team Science Platforms](team.md)
   - [Prompt Engineering](prompt.md)

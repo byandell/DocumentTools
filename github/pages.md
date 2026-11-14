@@ -30,6 +30,7 @@ more detailed guides and tutorials.
 - Additional Pages
   - [Embed Objects in GitHub Pages](embed.md)
   - [Automate with GitHub Actions](actions.md)
+  - [Build and Launch a Serverless Interactive Website](serverless.md)
 
 ## My GitHub Pages
 

@@ -22,6 +22,26 @@ $presentation-subtitle-font-size: 1.4em;
 // Main Reveal slide configurations
 .reveal {
   font-size: 30px;
+
+  .slides section {
+    box-sizing: border-box;
+    padding: 10px 30px;
+  }
+
+  // Multi-column layout enhancements
+  .columns {
+    display: flex !important;
+    gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: flex-start;
+  }
+
+  .column {
+    box-sizing: border-box;
+    flex: 1 1 0;
+    min-width: 0;
+  }
   
   h1, h2, h3, h4 {
     font-weight: 700;
@@ -194,9 +214,111 @@ $presentation-subtitle-font-size: 1.4em;
     }
   }
 
+  // Tables styling for light theme
+  table {
+    font-size: 0.65em;
+    line-height: 1.35;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.4em;
+
+    th {
+      background: #e2e8f0;
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 1.05em;
+      padding: 6px 10px;
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    td {
+      padding: 5px 10px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: middle;
+      word-wrap: break-word;
+    }
+
+    code {
+      font-size: 0.86em;
+    }
+
+    tr:hover td {
+      background-color: rgba(2, 132, 199, 0.04);
+    }
+  }
+
+  // Compact table / multi-column comparison table
+  table.compact-table,
+  .compact-table table {
+    font-size: 0.50em !important;
+    line-height: 1.3;
+    table-layout: fixed;
+
+    th, td {
+      padding: 4px 8px !important;
+    }
+
+    th:nth-child(1), td:nth-child(1) { width: 17%; }
+    th:nth-child(2), td:nth-child(2) { width: 29%; }
+    th:nth-child(3), td:nth-child(3) { width: 25%; }
+    th:nth-child(4), td:nth-child(4) { width: 29%; }
+  }
+
+  // Mermaid Flowchart Centering, Sizing, and Alignment
+  .cell-output-display {
+    text-align: center;
+    width: 100%;
+  }
+
+  .mermaid {
+    text-align: center;
+    width: 100%;
+    margin: 0.5em auto;
+
+    svg {
+      display: inline-block !important;
+      margin: 0 auto !important;
+      max-width: 95% !important;
+      max-height: 540px !important;
+      height: auto !important;
+    }
+
+    // Left-justify text within each node block
+    .node foreignObject div {
+      text-align: left !important;
+    }
+
+    .node foreignObject span.nodeLabel,
+    .node .nodeLabel {
+      display: block !important;
+      text-align: left !important;
+    }
+
+    // Ensure cluster and subgraph titles don't get clipped
+    .cluster foreignObject,
+    .cluster-label foreignObject {
+      overflow: visible !important;
+    }
+  }
+
   // Compact slide class to reduce overall size of content for slides with high density
   .compact-slide {
     font-size: 0.8em !important;
+
+    table {
+      font-size: 0.50em !important;
+      line-height: 1.3;
+      table-layout: fixed;
+
+      th, td {
+        padding: 4px 8px !important;
+      }
+
+      th:nth-child(1), td:nth-child(1) { width: 17%; }
+      th:nth-child(2), td:nth-child(2) { width: 29%; }
+      th:nth-child(3), td:nth-child(3) { width: 25%; }
+      th:nth-child(4), td:nth-child(4) { width: 29%; }
+    }
 
     h2 {
       font-size: 1.25em !important;

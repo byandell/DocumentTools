@@ -1,7 +1,8 @@
 ---
 title: "Agents and Workspace Rules"
-parent: "AI (Artificial Intelligence)"
-nav_order: 6
+parent: "Context Engineering"
+grand_parent: "AI (Artificial Intelligence)"
+nav_order: 1
 ---
 
 # Agents and Workspace Rules

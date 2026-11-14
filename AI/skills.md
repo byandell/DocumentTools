@@ -1,7 +1,8 @@
 ---
 title: "Create and Use AI Skills"
-parent: "AI (Artificial Intelligence)"
-nav_order: 7
+parent: "Context Engineering"
+grand_parent: "AI (Artificial Intelligence)"
+nav_order: 2
 ---
 
 # Create and Use AI Skills
