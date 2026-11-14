@@ -18,6 +18,7 @@ permalink: /github/
     - [Deploy with GitHub Actions](actions.md)
     - [Shinylive Performance Tradeoffs](shinylive.md)
     - [Use `pkgdown` to Auto-Build GitHub Website](pkgdown.md)
+    - [Build and Launch a Serverless Interactive Website](serverless.md)
   - [Version GitHub Docs](version.md)
   - [Prompt Examples](../prompts/)
     - [Create Developer Guides (Blueprint)](../prompts/devel_guide.md)
