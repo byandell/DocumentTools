@@ -8,7 +8,8 @@ nav_order: 3
 # Build and Launch a Serverless Interactive Website
 
 This section resulted from a conversation with Patrick Freeland
-([ATNI Tribes](https://atnitribes.org/about/our-staff/),
+([LinkedIn](https://www.linkedin.com/in/patrickfreeland/),
+[ATNI Tribes](https://atnitribes.org/about/our-staff/),
 [Liken Knowledge](https://www.likenknowledge.org/likeneers/patrick-freeland))
 about the many projects he has been developing using Claude.
 See
