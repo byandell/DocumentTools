@@ -285,9 +285,7 @@ across repos, which led to this section.
 
 **Prompt:**
 
-- Using
-<https://byandell.github.io/DocumentTools/github/serverless.html>,
-explain concisely how this repo gets deployed to produce
+- Using [https://byandell.github.io/DocumentTools/github/serverless.html](https://byandell.github.io/DocumentTools/github/serverless.html), explain concisely how this repo gets deployed to produce
 `<https://atniclimate.github.io/[repo-name]/>.
 Avoid duplication of content. Use mermaid for any flowchart.
 - The summaries in `deploy/` other than `TERRA.md` show slightly different ways to deploy a serverless website. Suggest changes to `../DocumentTools/github/serverless.md`, which was built from the `dynamic-drought-module` tool, to include these variations.
