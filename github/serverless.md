@@ -276,6 +276,24 @@ This executes the exact checks that the GitHub Actions `deploy.yml` workflow wil
 
 ## 7. Architectural Variations Across Projects
 
+I looked at several other projects by Patrick Freeland
+as to how they deployed a serverless website.
+For details, see
+[byandell/pfGuides/deploy](https://github.com/byandell/pfGuides/tree/main/deploy).
+Below are the prompts for an individual repo and for comparison
+across repos, which led to this section.
+
+**Prompt:**
+
+- Using
+<https://byandell.github.io/DocumentTools/github/serverless.html>,
+explain concisely how this repo gets deployed to produce
+`<https://atniclimate.github.io/[repo-name]/>.
+Avoid duplication of content. Use mermaid for any flowchart.
+- The summaries in `deploy/` other than `TERRA.md` show slightly different ways to deploy a serverless website. Suggest changes to `../DocumentTools/github/serverless.md`, which was built from the `dynamic-drought-module` tool, to include these variations.
+
+**Response:**
+
 While the **Dynamic Drought Module** illustrates a full-scale Node.js/Vite CI pipeline, serverless static delivery on GitHub Pages accommodates several lighter or specialized architectures across the ATNI project portfolio:
 
 ```mermaid
