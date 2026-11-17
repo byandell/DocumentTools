@@ -25,6 +25,7 @@ Brian Yandell framed the prompt below.
 - [4. How the GitHub Actions Pipeline Deploys to GitHub Pages](#4-how-the-github-actions-pipeline-deploys-to-github-pages)
 - [5. Local Developer Workflow: Running and Building Locally](#5-local-developer-workflow-running-and-building-locally)
 - [6. Summary: The Lifecycle at a Glance](#6-summary-the-lifecycle-at-a-glance)
+- [7. Architectural Variations Across Projects](#7-architectural-variations-across-projects)
 
 **Prompt:**
 
@@ -269,3 +270,98 @@ This executes the exact checks that the GitHub Actions `deploy.yml` workflow wil
 4. **Continuous Deployment**: On push to `main`, GitHub Actions (`deploy.yml`) runs the gate, bundles `dist/`, and publishes it to GitHub Pages via `actions/deploy-pages`.
 5. **Serve Client-Side**: Users open the site in their browser. The client browser executes MapLibre GL JS, streams vector tiles, and pulls live environmental data directly without needing a custom application server.
 6. **Live Verification**: `verify-live.yml` probes the live site to ensure the deployed bytes, build SHA, and tile-range queries are healthy.
+
+---
+
+## 7. Architectural Variations Across Projects
+
+While the **Dynamic Drought Module** illustrates a full-scale Node.js/Vite CI pipeline, serverless static delivery on GitHub Pages accommodates several lighter or specialized architectures across the ATNI project portfolio:
+
+```mermaid
+flowchart TD
+    Start["How do you want to build and deploy?"] --> Q1{"Requires build or compilation?"}
+    
+    Q1 -->|No: Pure Vanilla HTML/JS| PatternA["Pattern A: Zero-Build Direct<br/>(TieredSovereignDataFramework)<br/>• Author in docs/<br/>• Deploy via main:/docs"]
+    Q1 -->|Yes| Q2{"Build engine & toolchain?"}
+    
+    Q2 -->|Python Tooling| Q3{"Deploy mechanism?"}
+    Q3 -->|Native GitHub Pages| PatternB["Pattern B: Local Python Generator<br/>(Climate Curriculum)<br/>• python source/build.py -> docs/<br/>• Deploy via main:/docs with .nojekyll"]
+    Q3 -->|GitHub Actions CI Gate| PatternC["Pattern C: Gated Isolated Root<br/>(ATNI Task Force)<br/>• Local rebuild_all.py -> site/<br/>• CI runs validate_public.py<br/>• Actions deploys path: site"]
+
+    Q2 -->|Node / TypeScript / Bundler| Q4{"External API secrets or CORS required?"}
+    Q4 -->|No: Public APIs / Static Tiles| PatternBase["Baseline: Full Cloud CI/CD<br/>(Dynamic Drought Module)<br/>• GitHub Actions builds dist/<br/>• actions/deploy-pages + verify-live"]
+    Q4 -->|Yes: Gated Federal APIs| PatternD["Pattern D: Hybrid Edge Proxy<br/>(Policy Sentinel)<br/>• Vite bundles into docs/<br/>• Cloudflare Worker proxies private API keys"]
+```
+
+### Pattern A: Zero-Build Direct Static Authoring (`TieredSovereignDataFramework`)
+
+- **Reference**: [TieredSovereignDataFramework](https://atniclimate.github.io/TieredSovereignDataFramework/)
+- **Use Case**: Lightweight analytical sites, interactive framework guides, or decision trees that do not require module bundling or transpilation.
+- **Workflow**: Authors write standard HTML5, CSS3, and ES6 JavaScript directly inside the `docs/` folder (`index.html`, `styles.css`, `app.js`).
+- **Deployment**: Configured via native GitHub Pages settings pointing directly to the `main` branch `/docs` folder. No GitHub Actions workflows (`.github/workflows/`), npm dependencies, or build runners are involved.
+- **Benefits**: Zero build latency, zero third-party dependency vulnerabilities, and immediate updates upon push.
+
+### Pattern B: Local Python Generation with Deterministic Quality Gates (`climate-curriculum`)
+
+- **Reference**: [Climate Curriculum](https://atniclimate.github.io/climate-curriculum/)
+- **Use Case**: Educational or research modules where templates, vector graphics (e.g., SVG geometries), and static data are maintained with Python scripts.
+- **Workflow**:
+  1. Developers compile editable templates (`source/template.html`) and geospatial data (`source/columbia_svg.json`) into `docs/index.html` by running a local Python script (`python source/build.py`).
+  2. Local deterministic checks (`tools/check.py` and Playwright `tools/probe.js`) run before committing to verify strict constraints: zero external network dependencies, ATNI editorial styles, layout responsiveness, and accessibility (a11y).
+- **Deployment**: Published via native GitHub Pages (`main:/docs`). The presence of `docs/.nojekyll` ensures GitHub Pages serves raw SVG, font, and asset directories directly without Jekyll interference.
+- **Benefits**: Self-contained single-file delivery that operates 100% offline (e.g., in tribal school classrooms or low-connectivity environments) with user state saved in browser `localStorage`.
+
+### Pattern C: Isolated Subdirectory with CI Boundary Gates (`atni-task-force`)
+
+- **Reference**: [ATNI Task Force](https://atniclimate.github.io/atni-task-force/)
+- **Use Case**: Multi-tier data projects where sensitive notes, planning documents, or raw registries must remain strictly segregated from public deliverables.
+- **Workflow**:
+  1. Maintainers compile open claims locally using a Python script orchestrator (`scripts/rebuild_all.py`), generating static HTML, data plates, explorer blocks, and briefing PDFs into an isolated `site/` folder.
+  2. Commits pushed to `main` trigger `.github/workflows/pages.yml`. The runner executes `scripts/validate_public.py` using Python 3.12, enforcing schema compliance, link safety, and verifying that no Tier 1 (internal community network) text or confidential data has leaked into public files.
+  3. If all validation checks pass, `actions/upload-pages-artifact` packages only `path: site` (with `include-hidden-files: true` to preserve `site/.nojekyll`), and `actions/deploy-pages` publishes the bundle.
+- **Benefits**: Internal working files, planning drafts, build scripts, and tests remain in the repository root without ever being uploaded to the public web server.
+
+### Pattern D: Hybrid Static SPA with Serverless Edge Proxy (`policy-sentinel`)
+
+- **Reference**: [Policy Sentinel](https://atniclimate.github.io/policy-sentinel/)
+- **Use Case**: Client-side interactive applications that require authenticated access to external APIs with secret keys, rate limits, or strict CORS policies (e.g., GovInfo, Congress.gov, Regulations.gov).
+- **The Problem**: GitHub Pages is purely client-side; embedding an API key in client JavaScript leaks the secret publicly to anyone inspecting browser network traffic.
+- **The Solution**:
+  1. **Frontend**: A Preact/TypeScript application is compiled locally with Vite (`vite.demo.config.ts`, `npm run demo:build`) into `docs/` and published via native GitHub Pages (`main:/docs`). A local gate script (`scripts/finish-demo-build.mjs`) packages licenses into `docs/THIRD-PARTY-NOTICES.txt` and verifies that no secrets or analytics scripts leak into the bundle.
+  2. **Edge Proxy**: A lightweight serverless proxy (Cloudflare Worker configured in `worker/wrangler.toml`) runs at the network edge. It validates requesting origin domains, securely injects the private `DATA_GOV_API_KEY`, handles CORS, and implements version-scoped response caching.
+  3. **Verification**: A post-deployment browser audit script (`scripts/verify-demo-browser.mjs`) tests the live production URL for automated WCAG accessibility (via axe) and Content Security Policy (CSP) integrity.
+
+---
+
+### Comparative Architecture Matrix
+
+| Dimension | Baseline (`dynamic-drought-module`) | Zero-Build (`TieredSovereignDataFramework`) | Local Python (`climate-curriculum`) | Gated Isolated Root (`atni-task-force`) | Hybrid Edge Proxy (`policy-sentinel`) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Primary Purpose** | High-performance interactive geospatial mapping | Sovereign data framework guide & decision tool | Offline-capable climate education module | Regional energy & tech policy coordination library | Federal policy intelligence & document analysis |
+| **Source Directory** | `src/` (TypeScript, SCSS) | `docs/` (Vanilla JS, CSS) | `source/` (`template.html`, JSON) | `scripts/` & open data files | `demo/` (Preact, TypeScript) |
+| **Build Toolchain** | Node.js, `npm`, Vite, `tsc` | None (Zero build step) | Python 3 (`build.py`) | Python 3 (`rebuild_all.py`) | Vite (`vite.demo.config.ts`) |
+| **Build Environment** | Cloud CI (GitHub Actions runner) | None | Local workstation | Local workstation | Local workstation |
+| **Publishing Target** | Ephemeral `dist/` | Tracked `docs/` | Tracked `docs/` | Tracked `site/` | Tracked `docs/` |
+| **Deployment Method** | GitHub Actions (`deploy.yml` + OIDC) | Native Pages (`main:/docs`) | Native Pages (`main:/docs`) | GitHub Actions (`pages.yml` with `path: site`) | Native Pages (`main:/docs`) |
+| **Jekyll Bypass** | Handled by Actions artifact | Handled automatically | Required (`docs/.nojekyll`) | Required (`site/.nojekyll`) | Required (`docs/.nojekyll`) |
+| **Quality & Security Gates** | CI: `npm run gate` (bundle budgets, unit contracts) | None | Local: `check.py` & Playwright layout/a11y probes | CI: `validate_public.py` (checks T1 data leaks & schemas) | Local: `finish-demo-build.mjs` (token & pixel scans) |
+| **Data & API Architecture** | Direct public APIs & streamed PMTiles vector tiles | Embedded static JSON & client-side DOM rendering | Inlined SVG geometry & browser `localStorage` | Embedded JSON registry & static briefing PDFs | Cloudflare Worker edge proxy injecting private API keys |
+| **Post-Deploy Audit** | `verify-live.yml` (DOM SHA & HTTP Range tests) | Manual browser inspection | Local Playwright probe suite | Local preview server inspection | `verify-demo-browser.mjs` (axe WCAG & CSP audit) |
+
+---
+
+### Key Takeaways for Serverless Publishing
+
+1. **Choosing Between Native `/docs` and GitHub Actions (`actions/deploy-pages`)**:
+   - **Use Native `/docs`** if you prefer committing built static assets or zero-dependency files directly to Git. It provides instant deployments with zero CI runner minutes.
+   - **Use GitHub Actions (`actions/deploy-pages`)** if you want to keep compiled artifacts out of Git history (e.g., ephemeral `dist/`), build on the cloud runner, isolate publishing to a custom folder (e.g., `site/`), or enforce automated quality/governance gates before publishing.
+
+2. **Jekyll Bypass (`.nojekyll`) Hygiene**:
+   - GitHub Pages enables Jekyll processing by default, which ignores folders or filenames beginning with underscores (e.g., `_assets/`, `_kernel/`) or periods. Adding an empty `.nojekyll` file to the root of the published directory (`docs/.nojekyll` or `site/.nojekyll`) ensures that all assets serve as intended.
+
+3. **Managing Secrets in Serverless Frontends**:
+   - A static frontend hosted on GitHub Pages cannot securely hold confidential API keys; any key included in client JavaScript is visible to visitors.
+   - When private APIs or strict CORS endpoints are necessary, pair the static frontend with a serverless edge worker (such as Cloudflare Workers or AWS Lambda@Edge) that injects credentials and manages rate limiting before forwarding data to the browser.
+
+4. **Data Governance & Boundary Enforcement**:
+   - In open repositories containing multiple tiers of sensitivity (such as the Tiered Sovereign Data Framework), use isolated publishing directories (`site/`) coupled with automated pre-deploy boundary scripts (`validate_public.py`) to mathematically guarantee that internal drafts, community notes, or unredacted files are never deployed to public CDNs.
