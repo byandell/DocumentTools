@@ -335,7 +335,7 @@ flowchart TD
 
 ### Comparative Architecture Matrix
 
-| Dimension | Baseline (`dynamic-drought-module`) | Zero-Build (`TieredSovereignDataFramework`) | Local Python (`climate-curriculum`) | Gated Isolated Root (`atni-task-force`) | Hybrid Edge Proxy (`policy-sentinel`) |
+| Dimension | Baseline ([`dynamic-drought-module`](https://atniclimate.github.io/dynamic-drought-module/)) | Zero-Build ([`TieredSovereignDataFramework`](https://atniclimate.github.io/TieredSovereignDataFramework/)) | Local Python ([`climate-curriculum`](https://atniclimate.github.io/climate-curriculum/)) | Gated Isolated Root ([`atni-task-force`](https://atniclimate.github.io/atni-task-force/)) | Hybrid Edge Proxy ([`policy-sentinel`](https://atniclimate.github.io/policy-sentinel/)) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Primary Purpose** | High-performance interactive geospatial mapping | Sovereign data framework guide & decision tool | Offline-capable climate education module | Regional energy & tech policy coordination library | Federal policy intelligence & document analysis |
 | **Source Directory** | `src/` (TypeScript, SCSS) | `docs/` (Vanilla JS, CSS) | `source/` (`template.html`, JSON) | `scripts/` & open data files | `demo/` (Preact, TypeScript) |
