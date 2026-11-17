@@ -16,7 +16,7 @@ See
 and the specific project
 [ATNI Climate Dynamic Drought Module](https://atniclimate.github.io/dynamic-drought-module/),
 as well as
-[high-level system architecture of that project](/quarto/serverless_slides.html#/high-level-system-architecture).
+[high-level system architecture of that project](https://byandell.github.io/DocumentTools/quarto/serverless.html#/high-level-system-architecture).
 Brian Yandell framed the prompt below.
 
 - [1. High-level architecture how it works without a backend](#1-high-level-architecture-how-it-works-without-a-backend)
