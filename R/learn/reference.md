@@ -17,7 +17,8 @@ nav_order: 4
 
 ## Learning R
 
-- [R generation 25 (Significance)](http://blog.revolutionanalytics.com/2018/08/r-generation.html) ⚠️
+- [Data Carpentry: Intro to R (Karl Broman)](https://kbroman.org/datacarpentry_R_2016-08-23/01-intro-to-R.html)
+- [R generation: 25 Years of R (R-bloggers)](https://www.r-bloggers.com/2018/08/r-generation-25-years-of-r/)
 - [R for Data Science by Garrett Grolemund and Hadley Wickham (ebook)](http://r4ds.had.co.nz/)
 - [Data wrangling, exploration, and analysis with R by Jenny Bryan (course)](http://stat545.com/)
 - [Data Carpentry: R for Ecologists (workshop)](http://www.datacarpentry.org/R-ecology-lesson/) | [Karl Broman version](http://kbroman.org/datacarpentry_R_2017-01-10/)
@@ -40,7 +41,6 @@ nav_order: 4
   - [Webinar GitHub](https://github.com/rstudio/webinars)
   - [rstudio::2017 Slides](https://github.com/kbroman/RStudioConf2017Slides/blob/master/ReadMe.md) | [rstudio::2017 Videos](https://www.rstudio.com/resources/webinars/#rstudioconf)
 - <https://www.rdocumentation.org/>
-- <https://open.nasa.gov/explore/> ⚠️
 - [Modern Dive by Chester Ismay and Albert Y. Kim](https://ismayc.github.io/moderndiver-book/)
 - [Stackoverflow R Tags](https://stackoverflow.com/tags/r/info)
 

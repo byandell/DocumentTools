@@ -126,5 +126,7 @@ Cumulative measures are much better behaved for a variety of reasons.
 - [Open Source LLMs](/AI/LLM.md#open-source-llms)
 - [Hugging Face](https://huggingface.co/): a repository for models and datasets
 - [Kaggle](https://www.kaggle.com/): a platform for data science competitions and datasets
-- [Data Repositories](repositories.md)
-- [Big Data](bigdata.md)
+- [NASA Open Data Portal](https://data.nasa.gov/dataset/)
+- Additional Pages
+  - [Data Repositories](repositories.md)
+  - [Big Data](bigdata.md)
