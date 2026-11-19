@@ -21,14 +21,16 @@ and will add notes here as I learn more.
 - [Integrated Development Environments (IDEs)](#integrated-development-environments-ides)
   - [Cloud-Based Research Environments](#cloud-based-research-environments)
   - [Google Gemini and Antigravity](#google-gemini-and-antigravity)
-    - [Recovering Antigravity 1.x Conversations](recover_conversations.md)
   - [Other AI Environments](#other-ai-environments)
 - [Agentic AI](#agentic-ai)
   - [SOUL.md](#soulmd)
   - [Agentic AI References](#agentic-ai-references)
-- [Team Science Platforms](team.md)
-- [Large Language Models (LLMs)](LLM.md)
-- [What is an AI Harness?](harness.md)
+- Additional Pages
+  - [Team Science Platforms](team.md)
+  - [Large Language Models (LLMs)](LLM.md)
+  - [What is an AI Harness?](harness.md)
+  - [Gemini 4 Models](gemini.md)
+  - [Recover Antigravity 1.x Conversations](recover_conversations.md)
 
 ## What is an AI Environment?
 
