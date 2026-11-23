@@ -12,7 +12,7 @@ permalink: /quarto/
 
 - [R Language](./R.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/R.qmd))
 - [Python Language](./python.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/python.qmd))
-- [GitHub, Connect, and CodeSpaces](./github.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/github.qmd))
+- [Share Projects with GitHub](./github.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/github.qmd))
 - [Environmental Systems](./envsys.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/envsys.qmd))
 - [Data Sciences](./datasci.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/datasci.qmd))
 - [Modular Shiny Applications](./ShinyApps.html) ([source](https://github.com/byandell/DocumentTools/blob/main/quarto/ShinyApps.qmd))

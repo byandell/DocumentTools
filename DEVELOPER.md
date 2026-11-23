@@ -54,7 +54,7 @@ The codebase is organized into topic-focused folders, each backed by a dedicated
 | --- | --- | --- |
 | [`R/`](R/README.md) | R programming notes, data structures, and packages | [`R/README.md`](R/README.md), [`R/radian.md`](R/radian.md) |
 | [`python/`](python/README.md) | Python programming notes, scripts, and environments | [`python/README.md`](python/README.md), [`python/strategy.md`](python/strategy.md) |
-| [`github/`](github/README.md) | Git, GitHub Pages, Actions, Shinylive & web publishing | [`github/README.md`](github/README.md), [`github/pages.md`](github/pages.md), [`github/shinylive.md`](github/shinylive.md) |
+| [`github/`](github/README.md) | Share Projects with GitHub: Git, GitHub Pages, Actions, Shinylive & web publishing | [`github/README.md`](github/README.md), [`github/pages.md`](github/pages.md), [`github/shinylive.md`](github/shinylive.md) |
 | [`envsys/`](envsys/README.md) | Environmental data science, ESIIL, Maka Sitomniya & spatial analysis | [`envsys/README.md`](envsys/README.md), [`envsys/geospatial.md`](envsys/geospatial.md) |
 | [`AI/`](AI/README.md) | AI tools, LLM concepts, agent architecture & prompts | [`AI/README.md`](AI/README.md), [`AI/agents.md`](AI/agents.md), [`AI/LLM.md`](AI/LLM.md) |
 | [`datasci/`](datasci/README.md) | Data science methods, big data handling, statistical significance | [`datasci/README.md`](datasci/README.md), [`datasci/bigdata.md`](datasci/bigdata.md), [`datasci/signif.md`](datasci/signif.md) |

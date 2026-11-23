@@ -305,7 +305,7 @@ and click on `Blame` (top left) or `History` (top right).
 
 This was used on the Multiple Versions prompt above.
 The first time, I forgot to `git pull` changes I made on `GitHub` before starting. I tried to solve by myself and got lost. AI sorted it out.
-See [GitHub](./github/) for more information.
+See [Share Projects with GitHub](../github/) for more information.
 
 ### Organize a Workflow
 

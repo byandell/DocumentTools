@@ -1,8 +1,8 @@
 ---
 title: "Build and Launch a Serverless Interactive Website"
 parent: "Publish GitHub Pages"
-grand_parent: "Organize Projects with GitHub"
-nav_order: 3
+grand_parent: "Share Projects with GitHub"
+nav_order: 4
 ---
 
 # Build and Launch a Serverless Interactive Website

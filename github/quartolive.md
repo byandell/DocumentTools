@@ -1,7 +1,7 @@
 ---
 title: "Publish Quarto Dashboard"
 parent: "Publish GitHub Pages"
-grand_parent: "Organize Projects with GitHub"
+grand_parent: "Share Projects with GitHub"
 nav_order: 3
 ---
 

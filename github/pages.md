@@ -1,7 +1,7 @@
 ---
 title: "Publish GitHub Pages"
-parent: "Organize Projects with GitHub"
-nav_order: 1
+parent: "Share Projects with GitHub"
+nav_order: 3
 has_children: true
 ---
 
@@ -17,7 +17,7 @@ Subpages are built using `[username].github.io/[reponame]`
 where `[reponame]` can is the name of a repo owned by
 `[username]`.
 The `[username]` can also be a
-[GitHub Organization](#collaborating-with-github-organizations).
+[GitHub Organization](org.md).
 
 The resources below cover the basics of GitHub Pages
 and provide links to my published pages and

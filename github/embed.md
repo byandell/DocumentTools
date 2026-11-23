@@ -1,7 +1,7 @@
 ---
 title: "Embed Objects in GitHub Pages"
 parent: "Publish GitHub Pages"
-grand_parent: "Organize Projects with GitHub"
+grand_parent: "Share Projects with GitHub"
 nav_order: 1
 ---
 
@@ -127,4 +127,3 @@ The trade-offs of embedding WebAssembly-powered **Shinylive** apps directly into
 2. **Automatic Garbage Collection**: When the user navigates back to the main documentation index, the browser terminates the worker thread and immediately reclaims ~250MB RAM.
 3. **Avoid Multi-App Pages**: Never embed multiple standalone `{shinylive}` chunks on a single page. If you need multiple modules, compose them into a **single multi-module Shiny app** sharing one WebR worker.
 4. **Static Fallbacks**: For resource-intensive dashboards, display a static preview screenshot with a "Launch Interactive WebAssembly Demo" link so workers spin up only on demand.
-

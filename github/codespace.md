@@ -1,10 +1,10 @@
 ---
-title: "CodeSpaces within GitHub"
-parent: "Organize Projects with GitHub"
+title: "Use CodeSpaces within GitHub"
+parent: "Share Projects with GitHub"
 nav_order: 2
 ---
 
-# CodeSpaces within GitHub
+# Use CodeSpaces within GitHub
 
 GitHub repos can initiate a GitHub Codespace, which is a development environment that runs in the cloud. It is based on Docker and uses Visual Studio Code as the editor.
 These used to be free but now require payment.

@@ -10,7 +10,7 @@ permalink: /
 - [R Language](./R/) ([slides](./quarto/R.html))
 - [Data Sciences](./datasci/) ([slides](./quarto/datasci.html))
 - [Python Language](./python/) ([slides](./quarto/python.html))
-- [GitHub](./github/) ([slides](./quarto/github.html))
+- [Share Projects with GitHub](./github/) ([slides](./quarto/github.html))
 - [Create Guides](guides.md)
 - [Environmental Systems](./envsys/) ([slides](./quarto/envsys.html))
 - [Shiny Apps](./shiny/) ([slides](./quarto/ShinyApps.html))

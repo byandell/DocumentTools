@@ -1,7 +1,7 @@
 ---
 title: "Deploy with GitHub Actions"
 parent: "Publish GitHub Pages"
-grand_parent: "Organize Projects with GitHub"
+grand_parent: "Share Projects with GitHub"
 nav_order: 2
 ---
 
@@ -200,6 +200,7 @@ If your Quarto project is located in a subdirectory (like `docs/` or `demos/`), 
 
 - **Issue**: Running `quarto add` in the root folder installs extensions into `/_extensions`, but Quarto only scans `/demos/_extensions`.
 - **Fix**: Change into the subfolder before executing extension commands:
+
   ```bash
   cd demos && quarto add quarto-ext/shinylive --no-prompt
   ```
@@ -210,6 +211,7 @@ Shinylive executes browser WebAssembly (`webR`) workers and service workers (`sh
 
 - **Issue**: Browser security policies block WebWorkers inside self-contained data URIs (`embed-resources: true`). In addition, the Shinylive Lua filter outputs a warning block: `#| '!! shinylive warning !!': | #| shinylive does not work in self-contained HTML documents.`
 - **Fix**: Always specify non-self-contained mode in your `.qmd` or `_quarto.yml`:
+
   ```yaml
   format:
     html:
@@ -231,6 +233,7 @@ Shinylive executes browser WebAssembly (`webR`) workers and service workers (`sh
 
 - **Issue**: If Quarto detects Python syntax or fails to resolve Knitr configurations in `.qmd` files, it attempts to launch a Python 3 Jupyter kernel, failing on clean runners.
 - **Fix**: Explicitly set the rendering engine in YAML headers:
+
   ```yaml
   engine: knitr
   ```

@@ -1,9 +1,9 @@
 ---
 title: "Version GitHub Docs"
-parent: "Organize Projects with GitHub"
+parent: "Share Projects with GitHub"
 author: "Brian S. Yandell"
 date: 2017-07-05
-nav_order: 3
+nav_order: 4
 ---
 
 # Version GitHub Docs
