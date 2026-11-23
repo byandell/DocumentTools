@@ -6,6 +6,11 @@ nav_order: 1
 
 # Collaborate with GitHub Organizations
 
+- [References](#references)
+- [My GitHub Organizations](#my-github-organizations)
+- [Organization Profile README](#organization-profile-readme)
+- [Organization Authorization (OAuth)](#organization-authorization-oauth)
+
 A GitHub organization allows a team (or an individual like me)
 to collaborate on related repositories.
 The organization `owner`(s) manage `member`(s) and repositories (repos).
@@ -67,7 +72,7 @@ This is done with old style HTML code:
 </details>
 ```
 
-## Organization Authorization
+## Organization Authorization (OAuth)
 
 **Prompts:**
 
