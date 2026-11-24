@@ -20,8 +20,7 @@ and will add notes here as I learn more.
 - [What is an AI Environment?](#what-is-an-ai-environment)
 - [Integrated Development Environments (IDEs)](#integrated-development-environments-ides)
   - [Cloud-Based Research Environments](#cloud-based-research-environments)
-  - [Google Gemini and Antigravity](#google-gemini-and-antigravity)
-  - [Other AI Environments](#other-ai-environments)
+  - [Selected AI Environments](#selected-ai-environments)
 - [Agentic AI](#agentic-ai)
   - [SOUL.md](#soulmd)
   - [Agentic AI References](#agentic-ai-references)
@@ -29,8 +28,7 @@ and will add notes here as I learn more.
   - [Team Science Platforms](team.md)
   - [Large Language Models (LLMs)](LLM.md)
   - [What is an AI Harness?](harness.md)
-  - [Gemini 4 Models](gemini.md)
-  - [Recover Antigravity 1.x Conversations](recover_conversations.md)
+  - [Google Gemini & Antigravity](gemini.md)
 
 ## What is an AI Environment?
 
@@ -40,7 +38,6 @@ Environments can be physical (like robots) or virtual (like simulations or cloud
 AI environments allow for real-time interaction and feedback between AI systems and their surroundings.
 They often incorporate machine learning capabilities, enabling AI to adapt and improve over time.
 Common applications include autonomous vehicles, smart homes, and virtual assistants.
-([Google Gemini](https://gemini.google.com))
 
 - [Types of Environments in AI (Geeks4Geeks)](https://www.geeksforgeeks.org/artificial-intelligence/types-of-environments-in-ai/)
 - [What is an Environment in AI (Analytics Vidhya)](https://www.analyticsvidhya.com/blog/2026/01/types-of-environments-in-ai/)
@@ -123,60 +120,14 @@ and
 ACCESS resources typically require an educational account
 and benefit from technical guidance.
 
-### Google Gemini and Antigravity
-
-Google Gemini has an enterprise contract with UW-Madison; hence I concentrate a bit on it here.
-Much of this applies more broadly to other AI environments.
-While Gemini is available via the browser, it is also being embedded
-into a variety of tools.
-These tools are evolving fast, due to competition as well as
-tool advances through use of AI on the tool development process.
-
-Google initially offered `Antigravity 1.0` as an extension of
-[`VScode`](https://code.visualstudio.com/)
-with a Gemini AI agent in the right panel.
-On 19 May 2026, Google released
-[`Antigravity 2.0`](https://antigravity.google/)
-as a suite of 4 tools:
-
-- `Antigravity 2.0`: full multi-agentic AI code development environment
-- `Antigravity CLI`: command line interface (CLI), used in the terminal
-- `Antigravity SDK`: software development kit (SDK), used by developers to build apps
-- `Antigravity IDE`: integrated development environment (IDE), an updated version of the previous (`1.x`) IDE
-
-Unfortunately, this release confused previous users.
-The new tool, with the same name as the previous tool, presents
-as a chat window without IDE-like features, and without clear indication
-about how it differs from the prior tool, or how to get back
-to the prior tool.
-This will be a useful tool for
-[vibe coding](https://vibe-coding.run/)
-but not directly relevant to those of us developing code-based tools.
-`Antigravity IDE` seems better suited for that task.
-Again, unfortunately, the IDE did not carry any previous chat history
-(known as `conversations`) over to 2.0.
-See
-[Recovering Antigravity Conversations](recover_conversations.md)
-for a guide I wrote to recover them based on community response.
-
-- [Google Gemini](https://gemini.google.com/)
-  - [Generative AI Services at UW–Madison: Tools, Policies & Resources](https://kb.wisc.edu/ai/) ⚠️
-  - [Prompt design strategies (Google AI for Developers)](https://ai.google.dev/gemini-api/docs/prompt-design) ⚠️
-  - [File input methods (Google AI for Developers)](https://ai.google.dev/gemini-api/docs/file-inputs) ⚠️
-  - [Import a GitHub repository & ask about it in the Gemini web app (UW-Madison)](https://kb.wisc.edu/ai/135575) ⚠️
-  - [Connect Box (Google Cloud)](https://cloud.google.com/gemini-enterprise/docs/connect-box)
-- [Antigravity](https://antigravity.google/)
-  - [Google Antigravity Documentation](https://antigravity.google/docs/get-started)
-  - [Getting Started with Google Antigravity (CodeLabs)](https://codelabs.developers.google.com/getting-started-google-antigravity)
-  - [AI Recovering Antigravity 1.x Conversations](recover_conversations.md)
-
-### Other AI Environments
+### Selected AI Environments
 
 `Antigravity` and many other IDEs began as forks of the
 [VS Code](https://code.visualstudio.com/)
 that integrate LLMs with collaboration on a user's local files and tools.
 Some have evolved away from these roots toward standalone apps.
 
+- [Google Gemini & Antigravity](gemini.md)
 - [Anthropic's Claude Code](https://www.anthropic.com/product/code) ⚠️
 - [Open AI's Codex](https://openai.com/index/openai-codex/)
 - [Posit's Positron](https://posit.co/products/open-source/positron/) ⚠️

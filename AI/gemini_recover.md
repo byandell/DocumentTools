@@ -1,11 +1,11 @@
 ---
-title: "Recover Antigravity 1.x Conversations"
-parent: "AI Environments"
-grand_parent: "AI (Artificial Intelligence)"
-nav_order: 3
+title: "Recover Antigravity 1"
+parent: "Google Gemini & Antigravity"
+grand_parent: "AI Environments"
+nav_order: 1
 ---
 
-# Recover Antigravity 1.x Conversations
+# Recover Antigravity 1
 
 `Antigravity IDE 2.0` is an improvement over `Antigravity 1.x`,
 but it lost contact with any previously created conversations.
